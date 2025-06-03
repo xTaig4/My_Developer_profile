@@ -1,18 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import EscapeButton from "./EscapeButton";
 
 interface MyProfileProps {
   text: string;
 }
 
-const MyProfile = ({text} : MyProfileProps) => {
-    const [hovered, setHovered] = useState(false);
-    const handleMouseEnter = () => {
-        setHovered(true);
-    }
-
+const MyProfile = ({ text }: MyProfileProps) => {
+  
   return (
     <div className="flex flex-col-2 items-center pl-110 bg-amber-200 text-black gap-40 w-full h-screen">
       <div className="flex flex-col text-center gap-4 w-80">

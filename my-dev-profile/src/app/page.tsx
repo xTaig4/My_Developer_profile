@@ -1,4 +1,4 @@
-import Image from "next/image"
+
 import MyProfile from "./components/myProfile";
 
 export default function Home() {
