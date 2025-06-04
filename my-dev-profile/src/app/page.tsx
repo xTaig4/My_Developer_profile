@@ -7,7 +7,7 @@ export default function Home() {
       </h1>
       <p className="text-lg text-gray-300 max-w-xl">
         Explore my developer profile to learn more about my skills, projects,
-        and experience. Feel free to browse around and get to know my work—I'm
+        and experience. Feel free to browse around and get to know my work—I`m
         excited to share my journey with you! 
       </p>
     </div>
