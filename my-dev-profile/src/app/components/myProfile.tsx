@@ -18,6 +18,7 @@ const MyProfile = ({ text }: MyProfileProps) => {
       <div>
         <img
           src="https://media.discordapp.net/attachments/668167761792466963/1316025712204972032/20241210_135217.jpg?ex=684193f4&is=68404274&hm=0f60b2aeaec6b64129479fb8e927d3897f55c7fbdf66d89886495a07503e2afe&=&format=webp&width=692&height=968"
+          alt="My Profile Picture"
           className="h-150 rounded-lg"
         ></img>
       </div>
