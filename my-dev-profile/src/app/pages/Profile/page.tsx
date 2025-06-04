@@ -1,10 +1,17 @@
 'use client';
+import MyProfile from "@/app/components/myProfile";
+import EscapeButton from "@/app/components/EscapeButton";
 
 const ProfilePage = () => {
     return (
-        <div className="flex  items-center justify-center h-screen bg-gray-800">
-            Profile page
-        </div>
+      <div>
+            <MyProfile
+                text="Frontend udvikler med erfaring i moderne web teknologier som React, 
+                TypeScript og ASP.NET. Stærk forståelse for integration mellem frontend og backend. 
+                Arbejder struktureret, er nysgerrig af naturen og motiveret for at lære, tage ansvar 
+                og bidrage med solide løsninger."
+            />
+      </div>
     );
 };
 

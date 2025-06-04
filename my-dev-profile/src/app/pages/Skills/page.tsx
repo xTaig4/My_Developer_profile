@@ -4,16 +4,16 @@ import React from "react";
 const skills = [
   { name: "JavaScript", rating: 5 },
   { name: "TypeScript", rating: 4 },
+  { name: "C#", rating: 5 },
   { name: "React", rating: 5 },
   { name: "Next.js", rating: 4 },
-  { name: "Tailwind CSS", rating: 4 },
-  { name: "Node.js", rating: 3 },
-  { name: "Python", rating: 3 },
+  { name: "HTML, CSS", rating: 5 },
+  { name: "Tailwind CSS", rating: 5 }
 ];
 
 const SkillsPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white p-4">
+    <div className="flex flex-col items-start justify-baseline h-screen bg-gray-800 text-white px-60">
       <h2 className="text-2xl font-bold mb-4">
         A Place where I can showcase my skills and projects.
       </h2>
