@@ -1,6 +1,5 @@
 'use client';
 import MyProfile from "@/app/components/myProfile";
-import EscapeButton from "@/app/components/EscapeButton";
 
 const ProfilePage = () => {
     return (
