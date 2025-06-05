@@ -9,8 +9,8 @@ interface MyProfileProps {
 const MyProfile = ({ text }: MyProfileProps) => {
   
   return (
-    <div className="flex flex-col-2 items-center pl-110 bg-amber-200 text-black gap-40 w-full h-screen">
-      <div className="flex flex-col text-center gap-4 w-80">
+    <div className="flex flex-col-2 items-center pl-50  bg-gray-800 text-gray-200 gap-40 w-full h-screen">
+      <div className="flex flex-col text-left gap-4 w-130 mb-50">
         <h1>My Profile</h1>
         <p>{text}</p>
         <EscapeButton />
