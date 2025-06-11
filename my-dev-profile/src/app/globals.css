@@ -3,13 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-mindaro: #ddeb9d;
+  --color-floral: #faf6e9;
+  --color-gunmetal: #22333b;
+  --color-ghost: #131010;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-background: var(--color-gunmetal);
+  --color-button: var(--color-mindaro);
+  --color-sidebar: var(--color-gunmetal);
+  --color-text: var(--color-mindaro);
+  --color-button-text: var(--color-gunmetal);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -3,7 +3,11 @@ import React, { useRef, useState } from "react";
 const DISTANCE = 120; // px
 const RESET_DELAY = 2000; // ms
 
-export default function EscapeButton() {
+interface EscapeButtonProps {
+  text?: string;
+}
+
+export default function EscapeButton({ text }: EscapeButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [transform, setTransform] = useState<string>("");
 
@@ -33,18 +37,14 @@ export default function EscapeButton() {
       timeoutRef.current = setTimeout(() => setTransform(""), RESET_DELAY);
     }
   };
-
   return (
-    <div
-      className=""
-      onMouseMove={handleMouseMove}
-    >
+    <div className="" onMouseMove={handleMouseMove}>
       <button
         ref={buttonRef}
-        className="relative bg-blue-500 text-white px-4 py-2 rounded transition-transform duration-200"
+        className="relative bg-button text-button-text font-bold px-4 py-2 rounded transition-transform duration-200"
         style={{ transform }}
       >
-        Catch Me!
+        {text}
       </button>
     </div>
   );

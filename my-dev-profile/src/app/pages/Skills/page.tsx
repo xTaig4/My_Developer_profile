@@ -13,8 +13,8 @@ const skills = [
 
 const SkillsPage = () => {
   return (
-    <div className="flex flex-col items-start justify-center h-screen bg-gray-800 text-white px-60">
-      <div className="mb-60">
+    <div className="flex flex-col items-start justify-center h-screen bg-background text-white px-60">
+      <div className="mb-20">
         <h2 className="text-2xl font-bold mb-4">
           A Place where I can showcase my skills and projects.
         </h2>

@@ -1,33 +1,34 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
+import ContactCard from "@/app/components/ContactCard";
+import EscapeButton from "@/app/components/EscapeButton";
+import { useState } from "react";
 
 const ContactPage = () => {
+  const [showCard, setShowCard] = useState(false);
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white p-4">
+    <div className="flex flex-col items-center justify-center h-screen bg-background text-text p-4">
       <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
-      <p className="text-lg mb-6">Feel free to reach out for any inquiries or collaborations!</p>
-      <form className="w-full max-w-md">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-        />
-        <textarea
-          placeholder="Your Message"
-          className="w-full p-2 mb-4 border border-gray-300 rounded h-32"
-        ></textarea>
+      <p className="text-lg mb-6">
+        So now that you seen my profile, are you interest in hiring me?
+      </p>
+      <div className="flex flex-row gap-38">
         <button
-          type="submit"
-          className="w-20 bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200"
+          className="bg-button text-button-text hover:bg-emerald-600 font-bold py-2 px-4 rounded mb-6"
+          onClick={() => setShowCard(!showCard)}
         >
-          Send Message
+          Yes
         </button>
-      </form>
+        <EscapeButton text="No" />
+      </div>
+      {showCard && (
+        <ContactCard
+          name="Tai Nguyen"
+          email="dummyMail@gmail.com"
+          phone="(+45) 00 00 00 00"
+        />
+      )}
     </div>
   );
 };
