@@ -28,43 +28,38 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="fixed top-0 bottom-0 flex h-screen w-auto bg-emerald-400">
-          <nav className="flex flex-col items-start text-center space-y-4 space-x-4 mt-4">
+        {/* side navigation bar*/}
+        <div className="fixed top-0 bottom-0 border-text flex border-r-1 h-screen w-auto bg-sidebar">
+          <nav className="flex flex-col items-start text-center space-x-4 mt-4">
             <Link
               href="/"
-              className="w-full border-b-1 text-gray-800 hover:underline border-gray-800"
+              className="w-full border-1 text-text hover:underline border-text"
             >
               Home
             </Link>
             <Link
               href="/pages/Profile"
-              className="w-full border-b-1 text-gray-800 hover:underline border-gray-800"
+              className="w-full border-1 text-text hover:underline border-text"
             >
               Profil
             </Link>
             <Link
               href="/pages/Skills"
-              className="w-full border-b-1 text-gray-800 hover:underline border-gray-800"
+              className="w-full border-1 text-text hover:underline border-text"
             >
               Kompentencer
             </Link>
             <Link
               href="/pages/Projects"
-              className="w-full border-b-1 text-gray-800 hover:underline border-gray-800"
+              className="w-full border-1 text-text hover:underline border-text"
             >
               Projekter
             </Link>
             <Link
               href="/pages/Contact"
-              className="w-full border-b-1 text-gray-800 hover:underline border-gray-800"
+              className="w-full border-1 text-text hover:underline border-text"
             >
               Kontakt
-            </Link>
-            <Link
-              href="/pages/Test"
-              className="w-full border-b-1 text-gray-800 hover:underline border-gray-800"
-            >
-              Test
             </Link>
           </nav>
         </div>
