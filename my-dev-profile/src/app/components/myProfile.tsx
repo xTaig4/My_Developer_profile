@@ -1,7 +1,5 @@
 "use client";
 
-import EscapeButton from "./EscapeButton";
-
 interface MyProfileProps {
   text: string;
 }
