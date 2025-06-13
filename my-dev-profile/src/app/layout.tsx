@@ -29,38 +29,56 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* side navigation bar*/}
-        <div className="fixed top-0 bottom-0 border-text flex border-r-1 h-screen w-auto bg-sidebar">
+        <div className="fixed border-text flex items-center pb-30 border-r-1 h-screen w-30 bg-sidebar">
           <nav className="flex flex-col items-start text-center space-x-4 mt-4">
             <Link
               href="/"
-              className="w-full border-1 text-text hover:underline border-text"
+              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Home
             </Link>
             <Link
               href="/pages/Profile"
-              className="w-full border-1 text-text hover:underline border-text"
+              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Profil
             </Link>
             <Link
               href="/pages/Skills"
-              className="w-full border-1 text-text hover:underline border-text"
+              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Kompentencer
             </Link>
             <Link
               href="/pages/Projects"
-              className="w-full border-1 text-text hover:underline border-text"
+              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Projekter
             </Link>
             <Link
               href="/pages/Contact"
-              className="w-full border-1 text-text hover:underline border-text"
+              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Kontakt
             </Link>
+            <div className="flex flex-row w-30 p-4">
+              <Link
+                href="https://www.linkedin.com/in/tai-nguyen-452753235/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" w-30 flex justify-center"
+              >
+                <img src="/linkedin.svg" alt="LinkedIn" />
+              </Link>
+              <Link
+                href="https://github.com/xTaig4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-30 flex justify-center"
+              >
+                <img src="/github.svg" alt="Github" />
+              </Link>
+            </div>
           </nav>
         </div>
         {children}
