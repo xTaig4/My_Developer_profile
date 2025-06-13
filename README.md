@@ -19,7 +19,7 @@ The site includes dedicated sections for my profile, competencies, projects, and
 
 ## Screenshots
 
-![Screenshot](Screenshots/Home.JPG)
+![Screenshot](my-dev-profile/Screenshots/Home.JPG)
 
 ## Folder Structure
 
