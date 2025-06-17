@@ -1,5 +1,4 @@
 "use client";
-import MyProfile from "@/app/components/myProfile";
 
 const ProfilePage = () => {
   return (
