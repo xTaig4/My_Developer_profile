@@ -29,44 +29,50 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* side navigation bar*/}
-        <div className="fixed border-text flex items-center pb-30 border-r-1 h-screen w-30 bg-sidebar">
-          <nav className="flex flex-col items-start text-center space-x-4 mt-4">
+        <div className="fixed border-text flex flex-col items-center pb-30 border-r-1 h-screen w-54 bg-sidebar">
+          <div className="">
+            <img
+              src="https://media.discordapp.net/attachments/668167761792466963/1316025712204972032/20241210_135217.jpg?ex=68520eb4&is=6850bd34&hm=1f94fe8ba6143d2a97ccedb1be3ad12650b89735a98408ebc53d1c02aea90655&=&format=webp&width=692&height=968"
+              className="border-1 border-text mt-25 object-cover w-54 -scale-x-100"
+            ></img>
+          </div>
+          <nav className="flex flex-col items-start text-center ">
             <Link
               href="/"
-              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Home
             </Link>
             <Link
               href="/pages/Profile"
-              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Profil
             </Link>
             <Link
               href="/pages/Skills"
-              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
-              Kompentencer
+              Skills
             </Link>
             <Link
               href="/pages/Projects"
-              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
-              Projekter
+              Projects
             </Link>
             <Link
               href="/pages/Contact"
-              className="w-30 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
-              Kontakt
+              Contact
             </Link>
-            <div className="flex flex-row w-30 p-4">
+            <div className="flex flex-row p-4 ml-6">
               <Link
                 href="https://www.linkedin.com/in/tai-nguyen-452753235/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" w-30 flex justify-center"
+                className="flex justify-center w-20"
               >
                 <img src="/linkedin.svg" alt="LinkedIn" />
               </Link>
@@ -74,7 +80,7 @@ export default function RootLayout({
                 href="https://github.com/xTaig4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-30 flex justify-center"
+                className="flex justify-center"
               >
                 <img src="/github.svg" alt="Github" />
               </Link>
