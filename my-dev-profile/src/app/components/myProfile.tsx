@@ -7,19 +7,19 @@ interface MyProfileProps {
 const MyProfile = ({ text }: MyProfileProps) => {
   return (
     <div
-      className="flex items-center flex-col pl-36 pr-5 pt-10 bg-background text-gray-200 w-full h-screen
-                 md:flex-row md:pl-40 md:pb-19 md:gap-20"
+      className="flex items-center flex-col pl-25 pr-5 pt-10 bg-background text-gray-200 w-full h-screen
+                 md:flex-row md:pl-40 md:gap-20"
     >
-      <div>
-        <img
-          src="https://media.discordapp.net/attachments/668167761792466963/1316025712204972032/20241210_135217.jpg?ex=684cc8b4&is=684b7734&hm=6fd8d720258724f41155d11ae19869e9fede0a1744577fecc0160e297dfc9538&=&format=webp&width=692&height=968"
+      <div className="md:ml-20">
+        {/* <img
+          src="https://media.discordapp.net/attachments/668167761792466963/1316025712204972032/20241210_135217.jpg?ex=68520eb4&is=6850bd34&hm=1f94fe8ba6143d2a97ccedb1be3ad12650b89735a98408ebc53d1c02aea90655&=&format=webp&width=692&height=968"
           alt="My Profile Picture"
-          className="max-h-100 md:max-h-130 rounded-lg -scale-x-100 border-2 border-text"
-        ></img>
+          className="max-h-100 md:max-h-160 rounded-lg -scale-x-100 border-2 border-text"
+        ></img> */}
       </div>
-      <div className="flex text-left flex-col gap-3 max-w-130 mt-10 md:mt-30 text-text">
-        <h1>My Profile</h1>
-        <p>{text}</p>
+      <div className="flex text-left flex-col gap-3 max-w-5xl text-text">
+        <h1 className="text-6xl">My Profile</h1>
+        <p className="text-4xl">{text}</p>
       </div>
     </div>
   );
