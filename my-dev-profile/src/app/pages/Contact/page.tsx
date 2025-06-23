@@ -3,7 +3,6 @@ import React from "react";
 import ContactCard from "@/app/components/ContactCard";
 import EscapeButton from "@/app/components/EscapeButton";
 import { useState } from "react";
-import Image from "next/image";
 
 const ContactPage = () => {
   const [showCard, setShowCard] = useState(false);
