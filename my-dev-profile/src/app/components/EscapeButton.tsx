@@ -44,7 +44,15 @@ export default function EscapeButton({ text }: EscapeButtonProps) {
         className="relative bg-button text-button-text font-bold px-4 py-2 rounded transition-transform duration-200"
         style={{ transform }}
       >
-        {text}
+        {text === "" ? (
+          <img
+            src="/thumbs-down.svg"
+            alt="Escape Button"
+            className="w-10 h-8 -scale-x-100"
+          />
+        ) : (
+          text
+        )}
       </button>
     </div>
   );

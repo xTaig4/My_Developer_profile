@@ -29,11 +29,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* side navigation bar*/}
-        <div className="fixed border-text flex flex-col items-center pb-30 border-r-1 h-screen w-54 bg-sidebar">
-          <div className="">
+        <div className="fixed border-text flex flex-col items-center border-r-1 h-screen w-54 bg-sidebar">
+          <div>
             <img
-              src="https://media.discordapp.net/attachments/668167761792466963/1316025712204972032/20241210_135217.jpg?ex=68520eb4&is=6850bd34&hm=1f94fe8ba6143d2a97ccedb1be3ad12650b89735a98408ebc53d1c02aea90655&=&format=webp&width=692&height=968"
-              className="border-1 border-text mt-25 object-cover w-54 -scale-x-100"
+              className="border-1 border-text mt-10 object-cover w-54 -scale-x-100"
+              src="/profile_image.jpg"
             ></img>
           </div>
           <nav className="flex flex-col items-start text-center ">
