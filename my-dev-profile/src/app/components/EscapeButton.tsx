@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-const DISTANCE = 120; // px
+const DISTANCE = 150; // px
 const RESET_DELAY = 2000; // ms
 
 interface EscapeButtonProps {
@@ -30,7 +30,7 @@ export default function EscapeButton({ text }: EscapeButtonProps) {
       const angle = Math.atan2(dy, dx);
       const moveX = -Math.cos(angle) * DISTANCE;
       const moveY = -Math.sin(angle) * DISTANCE;
-      setTransform(`translate(${moveX}px, ${moveY}px)`);
+      setTransform(`translate(${moveX * 2}px, ${moveY * 2}px)`);
 
       // Reset after delay
       if (timeoutRef.current) clearTimeout(timeoutRef.current);

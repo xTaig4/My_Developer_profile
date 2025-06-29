@@ -15,7 +15,7 @@ const ProfilePage = () => {
     <div className="flex flex-row pl-30  pb-15 gap-20 items-center bg-background text-gray-200 w-full h-full">
       <div className="ml-20"></div>
       <div className="flex text-left flex-col gap-15 max-w-5xl text-text mt-20 ">
-        <div>
+        <section>
           <h1 className="text-4xl">Profile</h1>
           <p className="text-2xl">
             Frontend developer with with a flair for backend and experience in
@@ -24,18 +24,18 @@ const ProfilePage = () => {
             Works in a structured manner, is naturally curious, and motivated to
             learn, take responsibility, and contribute solid solutions.
           </p>
-        </div>
-        <div>
+        </section>
+        <section>
           <h1 className="text-4xl">Hobbies</h1>
           <p className="text-2xl">
             In my free time, I enjoy gaming, watching anime, and reading manga.
             I also like going for walks and brewing pour-over coffee with my
-            Hario V60 set. I also spend time in Unity experimenting with game
-            development. Additionally, I love learning languages and am
+            Hario V60 set. I spend time in Unity experimenting with game
+            development as well. Additionally, I love learning languages and am
             currently studying Japanese and Vietnamese.
           </p>
-        </div>
-        <div>
+        </section>
+        <section>
           <h1 className="text-4xl mb-2 font-bold text-text ">Skills</h1>
           <div className="grid grid-cols-1 gap-y-3 text-text text-2xl ">
             {skills.map((skill) => (
@@ -48,7 +48,7 @@ const ProfilePage = () => {
               </li>
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
