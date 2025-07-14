@@ -38,7 +38,7 @@ const ProjectsPage = () => {
         {projects.map((project) => (
           <div
             key={project.name}
-            className=" card-expand relative w-80 h-65 overflow-hidden "
+            className="card-expand relative w-80 h-65 overflow-hidden "
           >
             <div className="bg-gray-700 p-4 flex flex-col border-1 border-text items-center justify-center ">
               <img
@@ -48,7 +48,7 @@ const ProjectsPage = () => {
               />
               <div className="text-center">
                 <strong>{project.name}</strong>
-                <p className="card-expand-inner text-sm text-gray-300 mt-1 max-h-0 overflow-hidden transition-all duration-300">
+                <p className="expand-inner-card text-sm text-gray-300 mt-1 max-h-0 overflow-hidden transition-all duration-300">
                   {/* Replace this with your detailed text */}
                   This is a more detailed description of {project.name}. Here
                   you can add more information, features, technologies used,

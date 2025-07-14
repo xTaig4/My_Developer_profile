@@ -50,16 +50,16 @@ body {
   transform: rotateY(180deg);
 }
 
-.expand-card {
+.card-expand {
   transition: transform 0.3s cubic-bezier(0.4, 0.7, 0.6, 1);
 }
 
-.expand-card:hover {
+.card-expand:hover {
   transform: scale(1.4);
   z-index: 20;
 }
 
-.card-expand-inner {
+.expand-inner-card {
   overflow: hidden;
   transition:
     max-height 0.3s,
@@ -67,7 +67,7 @@ body {
   opacity: 0;
 }
 
-.expand-card:hover .card-expand-inner {
+.card-expand:hover .expand-inner-card {
   opacity: 1;
   max-height: 300px;
   z-index: 10;
