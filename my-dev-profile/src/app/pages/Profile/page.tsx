@@ -12,17 +12,20 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="flex flex-row pl-30  pb-15 gap-20 items-center bg-background text-gray-200 w-full h-full">
+    <div className="flex flex-row pl-30 pb-15 gap-20 items-center bg-background text-gray-200 w-full h-full">
       <div className="ml-20"></div>
       <div className="flex text-left flex-col gap-15 max-w-5xl text-text mt-20 ">
         <section>
           <h1 className="text-4xl">Profile</h1>
           <p className="text-2xl">
-            Frontend developer with with a flair for backend and experience in
-            modern web technologies such as React, TypeScript, and ASP.NET.
-            Strong understanding of integration between frontend and backend.
-            Works in a structured manner, is naturally curious, and motivated to
-            learn, take responsibility, and contribute solid solutions.
+            Software developer with experience in modern web technologies such
+            as React, TypeScript, Next.js and Tailwind CSS, and backend
+            development in ASP.NET and C#, where I have, among other things,
+            built REST APIs, used Entity Framework and worked with databases and
+            Docker. Strong understanding of integration between frontend and
+            backend. Works in a structured manner, is naturally curious, and
+            motivated to learn, take responsibility, and contribute with solid
+            solutions.
           </p>
         </section>
         <section>
