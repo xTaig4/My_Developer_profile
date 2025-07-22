@@ -9,6 +9,7 @@ const ProfilePage = () => {
     { name: "Next.js", rating: 4 },
     { name: "HTML, CSS", rating: 5 },
     { name: "Tailwind CSS", rating: 5 },
+    { name: "ASP.NET", rating: 5 },
   ];
 
   return (
