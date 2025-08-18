@@ -29,45 +29,33 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* side navigation bar*/}
-        <div className="fixed border-text flex flex-col items-center border-r-1 h-screen w-54 bg-sidebar">
-          <div>
-            <img
-              className="border-1 border-text mt-10 object-cover w-54 -scale-x-100"
-              src="/profile_image.jpg"
-            ></img>
-          </div>
-          <nav className="flex flex-col items-start text-center ">
+        <div className="fixed border-text flex flex-col items-center border-r-1 h-screen w-40 bg-sidebar">
+          <nav className="flex flex-col items-start text-center mt-25">
             <Link
-              href="/"
-              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              href="/pages/test"
+              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Home
             </Link>
             <Link
-              href="/pages/Profile"
-              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
-            >
-              Profil
-            </Link>
-            <Link
               href="/pages/Skills"
-              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Skills
             </Link>
             <Link
               href="/pages/Projects"
-              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Projects
             </Link>
             <Link
               href="/pages/Contact"
-              className="w-54 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Contact
             </Link>
-            <div className="flex flex-row p-4 ml-6">
+            <div className="flex flex-row p-4 mt-115">
               <Link
                 href="https://www.linkedin.com/in/tai-nguyen-452753235/"
                 target="_blank"
