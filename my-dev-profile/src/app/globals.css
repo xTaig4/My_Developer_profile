@@ -9,6 +9,11 @@
   --color-ghost: #131010;
 }
 
+@font-face {
+  font-family: pixelFont;
+  src: url("/pixelFont.ttf");
+}
+
 @theme {
   --color-background: var(--color-gunmetal);
   --color-button: var(--color-mindaro);

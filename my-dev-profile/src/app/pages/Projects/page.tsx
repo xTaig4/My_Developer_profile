@@ -35,7 +35,7 @@ const ProjectsPage = () => {
   ];
 
   return (
-    <div className="fixed grid ml-54 pr-45 pt-25 items-center justify-center bg-background text-gray-200 w-full md:h-screen">
+    <div className="fixed grid ml-40 pr-45 pt-25 items-center justify-center bg-background text-gray-200 w-full md:h-screen">
       <section className="grid grid-cols-1 md:grid-cols-2 w-200 place-items-center">
         {projects.map((project) => (
           <div
