@@ -29,38 +29,35 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* side navigation bar*/}
-        <div className="fixed border-text flex flex-col items-center border-r-1 h-screen w-40 bg-sidebar">
-          <nav className="flex flex-col items-start text-center mt-25">
+        <div className="fixed border-text flex flex-col items-center border-r-1 h-screen w-29 bg-sidebar">
+          <nav
+            className="flex flex-col items-start text-center mt-25 text-font"
+            style={{ fontFamily: "pixelFont" }}
+          >
             <Link
               href="/pages/test"
-              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Home
             </Link>
             <Link
-              href="/pages/Skills"
-              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
-            >
-              Skills
-            </Link>
-            <Link
               href="/pages/Projects"
-              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Projects
             </Link>
             <Link
               href="/pages/Contact"
-              className="w-40 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+              className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Contact
             </Link>
-            <div className="flex flex-row p-4 mt-115">
+            <div className="flex flex-row p-4 ">
               <Link
                 href="https://www.linkedin.com/in/tai-nguyen-452753235/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex justify-center w-20"
+                className="flex justify-center w-12"
               >
                 <img src="/linkedin.svg" alt="LinkedIn" />
               </Link>
