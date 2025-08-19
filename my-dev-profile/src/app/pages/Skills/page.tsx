@@ -14,12 +14,15 @@ const skills = [
 const SkillsPage = () => {
   return (
     <div className="flex flex-col ml-40 items-center justify-center h-screen bg-background text-white">
-      <div className="border-1 border-text p-4 h-75 w-200">
+      <div
+        className="border-1 border-text p-4 h-75 w-200"
+        style={{ fontFamily: "pixelFont" }}
+      >
         <h1 className="font-bold mb-5 text-text ">Skills</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 max-w-5xl gap-x-40 gap-y-4 text-text">
+        <div className="grid grid-cols-1 lg:grid-cols-2 max-w-5xl gap-x-30 gap-y-4 text-text">
           {skills.map((skill) => (
             <li className="flex  items-center" key={skill.name}>
-              <span className="w-30">{skill.name}</span>
+              <span className="w-40">{skill.name}</span>
               <span>
                 {"★".repeat(skill.rating)}
                 {"☆".repeat(5 - skill.rating)}
