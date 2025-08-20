@@ -6,7 +6,7 @@ import ProfileBox from "@/app/components/ProfileBox";
 import ProjectList from "@/app/components/ProjectList";
 import { JSX } from "react";
 
-const TestPage = () => {
+const ProfilePage = () => {
   const filters: string[] = ["none", "beard1.png", "master.png"];
   const [filterIndex, setFilterIndex] = useState(0);
 
@@ -154,4 +154,4 @@ const TestPage = () => {
   );
 };
 
-export default TestPage;
+export default ProfilePage;
