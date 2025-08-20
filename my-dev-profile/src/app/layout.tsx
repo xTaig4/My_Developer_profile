@@ -29,22 +29,16 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* side navigation bar*/}
-        <div className="fixed border-text flex flex-col items-center border-r-1 h-screen w-29 bg-sidebar">
+        <div className="hidden fixed border-text lg:flex flex-col items-center border-r-1 h-screen w-29 bg-sidebar">
           <nav
             className="flex flex-col items-start text-center mt-25 text-font"
             style={{ fontFamily: "pixelFont" }}
           >
             <Link
-              href="/pages/test"
+              href="/"
               className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
             >
               Home
-            </Link>
-            <Link
-              href="/pages/Projects"
-              className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
-            >
-              Projects
             </Link>
             <Link
               href="/pages/Contact"
