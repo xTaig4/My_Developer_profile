@@ -1,4 +1,4 @@
-import ProfilePage from "./pages/profile/page";
+import ProfilePage from "./pages/Profile/page";
 
 export default function Home() {
   return (
