@@ -1,5 +1,5 @@
 ## About
-This project is to showcase little about my background, skills and projects. Since I'm a huge game nerd, i have tried showcase it in a way, that makes it feel like going through character details within a fantasy game. The project is built using Next.js, React and styled with Tailwind CSS. Feel free to browse around and get to know my work and journey as a developer!
+This project is to showcase little about my background, skills and projects. Since I'm a huge game nerd, I have tried to showcase it in a way, that makes it feel like the details menu of a character within a fantasy game. The project is built using Next.js, React and styled with Tailwind CSS. Feel free to browse around and get to know my work and journey as a developer!
 
 ## Features
 
