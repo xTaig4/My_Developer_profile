@@ -37,16 +37,16 @@ const ProjectList = () => {
   ];
   return (
     <div
-      className="h-200 w-full overflow-y-auto border-1 border-text rounded-lg hide-scrollbar"
+      className="h-200 w-100 overflow-y-auto border-1 border-text rounded-lg hide-scrollbar"
       style={{ direction: "rtl", fontFamily: "pixelFont" }}
     >
       <section
-        className="grid grid-cols-1 place-items-center gap-8 p-4"
+        className="flex-col place-items-center "
         style={{ direction: "ltr" }}
       >
         {projects.map((project) => (
-          <div key={project.name}>
-            <div className="p-4 flex flex-col border-1 border-text w-80 h-80 items-center ">
+          <div key={project.name} className="m-5 bg-teal-900">
+            <div className="p-4 flex flex-col border-1 border-text w-80 h-76 items-center">
               <img
                 src={project.image}
                 alt={project.name}

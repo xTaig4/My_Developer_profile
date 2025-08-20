@@ -1,61 +1,157 @@
 "use client";
+import React from "react";
+import { useState } from "react";
+import SkillsBox from "@/app/components/SkillsBox";
+import ProfileBox from "@/app/components/ProfileBox";
+import ProjectList from "@/app/components/ProjectList";
+import { JSX } from "react";
 
-const ProfilePage = () => {
-  const skills = [
-    { name: "C#", rating: 5 },
-    { name: "TypeScript", rating: 4 },
-    { name: "JavaScript", rating: 5 },
-    { name: "React", rating: 5 },
-    { name: "Next.js", rating: 4 },
-    { name: "HTML, CSS", rating: 5 },
-    { name: "Tailwind CSS", rating: 5 },
-    { name: "ASP.NET", rating: 5 },
+const TestPage = () => {
+  const filters: string[] = ["none", "beard1.png", "master.png"];
+  const [filterIndex, setFilterIndex] = useState(0);
+
+  const stats = [
+    { stat: "Strength", fillPercent: 40 },
+    { stat: "Braincells", fillPercent: 10 },
+    { stat: "Patience", fillPercent: 80 },
   ];
 
+  const traits = [
+    { trait: "Adaptability" },
+    { trait: "Collaboration" },
+    { trait: "Problem-solving" },
+  ];
+
+  const containers: { name: string; content: JSX.Element }[] = [
+    {
+      name: "Profile",
+      content: <ProfileBox />,
+    },
+    {
+      name: "Skills",
+      content: <SkillsBox />,
+    },
+  ];
+
+  const [containerIndex, setContainerIndex] = useState(0);
+
   return (
-    <div className="flex flex-row pl-30 pb-15 gap-20 items-center bg-background text-gray-200 w-full h-full">
-      <div className="ml-20"></div>
-      <div className="flex text-left flex-col gap-15 max-w-5xl text-text mt-20 ">
-        <section>
-          <h1 className="text-4xl">Profile</h1>
-          <p className="text-2xl">
-            Software developer with experience in modern web technologies such
-            as React, TypeScript, Next.js and Tailwind CSS, and backend
-            development in ASP.NET and C#, where I have, among other things,
-            built REST APIs, used Entity Framework and worked with databases and
-            Docker. Strong understanding of integration between frontend and
-            backend. Works in a structured manner, is naturally curious, and
-            motivated to learn, take responsibility, and contribute with solid
-            solutions.
-          </p>
-        </section>
-        <section>
-          <h1 className="text-4xl">Hobbies</h1>
-          <p className="text-2xl">
-            In my free time, I enjoy gaming, watching anime, and reading manga.
-            I also like going for walks and brewing pour-over coffee with my
-            Hario V60 set. I spend time in Unity experimenting with game
-            development as well. Additionally, I love learning languages and am
-            currently studying Japanese and Vietnamese.
-          </p>
-        </section>
-        <section>
-          <h1 className="text-4xl mb-2 font-bold text-text ">Skills</h1>
-          <div className="grid grid-cols-1 gap-y-3 text-text text-2xl ">
-            {skills.map((skill) => (
-              <li className="flex gap-10 items-center" key={skill.name}>
-                <span className="w-40">{skill.name}</span>
-                <span>
-                  {"★".repeat(skill.rating)}
-                  {"☆".repeat(5 - skill.rating)}
-                </span>
-              </li>
-            ))}
+    <div
+      className="flex flex-col items-center justify-center min-h-lvh bg-background "
+      style={{ fontFamily: "pixelFont" }}
+    >
+      <div className="flex flex-col lg:flex-row text-text p-4 lg:ml-40">
+        <div className="flex gap-10 lg:flex-row flex-col-reverse items-center">
+          <ProjectList />
+          <div className="flex flex-col">
+            <div className="flex flex-col-2 justify-evenly w-230">
+              <div className="flex flex-col gap-10 mt-10 h-75">
+                <section className="flex flex-col mt-5 justify-baseline">
+                  <h1 className="text-4xl">Stats</h1>
+                  {stats.map(({ stat, fillPercent }) => (
+                    <div
+                      key={stat}
+                      className="flex items-center justify-between gap-10 mt-4"
+                    >
+                      <span className="flex text-lg">{stat}</span>
+                      <div className="flex w-50 h-5 bg-gray-900 rounded-full overflow-hidden">
+                        <div
+                          className="flex h-full bg-text transition-all duration-500"
+                          style={{ width: `${fillPercent}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </section>
+                <div className="flex flex-col-2 gap-15">
+                  <section>
+                    {/* Traits */}
+                    <h1>Traits</h1>
+                    <span>
+                      {traits.map(({ trait }) => (
+                        <li key={trait}>{trait}</li>
+                      ))}
+                    </span>
+                  </section>
+                  <section>
+                    <h1>Personal traits</h1>
+                    <span>
+                      <li>Curious</li>
+                      <li>Creative</li>
+                      <li>Detail-oriented</li>
+                      <li>Resilient</li>
+                    </span>
+                  </section>
+                </div>
+              </div>
+              {/* Profile image container */}
+              <div className="flex flex-col relative w-90 p-4 overflow-hidden">
+                <div className="flex justify-center mb-2">
+                  <button
+                    className="text-3xl flex w-10 h-7 items-center justify-center border-1 p-1 hover:bg-gray-600"
+                    onClick={() =>
+                      setFilterIndex((prev) =>
+                        prev > 0 ? prev - 1 : filters.length - 1
+                      )
+                    }
+                  >
+                    ←
+                  </button>
+                  <button
+                    className="text-3xl flex w-10 h-7 items-center justify-center border-1 p-1 hover:bg-gray-600"
+                    onClick={() =>
+                      setFilterIndex((prev) =>
+                        prev < filters.length - 1 ? prev + 1 : 0
+                      )
+                    }
+                  >
+                    →
+                  </button>
+                </div>
+                <img
+                  src="/profile_pic.png"
+                  alt="Profile"
+                  className="w-full object-cover border-1"
+                />
+                {filters[filterIndex] !== "none" && (
+                  <img
+                    src={`/${filters[filterIndex]}`}
+                    alt="Overlay"
+                    className="p-4 absolute w-90 object-cover transition-transform duration-700 ease-in-out translate-y-5 -translate-x-5"
+                  />
+                )}
+              </div>
+            </div>
+            <div className="flex flex-row items-center gap-4">
+              <button
+                onClick={() =>
+                  setContainerIndex((prev) =>
+                    prev > 0 ? prev - 1 : containers.length - 1
+                  )
+                }
+                className="text-3xl left-150 flex w-10 h-7 items-center justify-center border-1 p-1 hover:bg-gray-600"
+              >
+                ←
+              </button>
+              <div className="flex gap-50 ">
+                {containers[containerIndex].content}
+              </div>
+              <button
+                onClick={() =>
+                  setContainerIndex((prev) =>
+                    prev < containers.length - 1 ? prev + 1 : 0
+                  )
+                }
+                className="text-3xl right-96 flex w-10 h-7 items-center justify-center border-1 p-1 hover:bg-gray-600"
+              >
+                →
+              </button>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ProfilePage;
+export default TestPage;
