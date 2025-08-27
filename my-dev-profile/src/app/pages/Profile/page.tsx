@@ -12,14 +12,23 @@ const ProfilePage = () => {
 
   const stats = [
     { stat: "Strength", fillPercent: 40 },
+    { stat: "Coding", fillPercent: 100 },
+    { stat: "Debuggin", fillPercent: 80 },
     { stat: "Braincells", fillPercent: 10 },
-    { stat: "Patience", fillPercent: 80 },
   ];
 
   const traits = [
-    { trait: "Adaptability" },
-    { trait: "Collaboration" },
-    { trait: "Problem-solving" },
+    { trait: "Detail-oriented" },
+    { trait: "Silly" },
+    { trait: "Team player" },
+    { trait: "Curious" },
+  ];
+  
+  const hobbies = [
+    { hobby: "Gaming" },
+    { hobby: "Reading" },
+    { hobby: "Pour-over Coffee"},
+    { hobby: "Doodling" },
   ];
 
   const containers: { name: string; content: JSX.Element }[] = [
@@ -74,12 +83,10 @@ const ProfilePage = () => {
                     </span>
                   </section>
                   <section>
-                    <h1>Personal traits</h1>
+                    <h1>Hobbies</h1>
                     <span>
-                      <li>Curious</li>
-                      <li>Creative</li>
-                      <li>Detail-oriented</li>
-                      <li>Resilient</li>
+                      {hobbies.map(({ hobby }) => (
+                        <li key={hobby}>{hobby}</li>))}
                     </span>
                   </section>
                 </div>
