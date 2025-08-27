@@ -8,7 +8,7 @@ const ContactPage = () => {
   const [showCard, setShowCard] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-background text-text p-4 ml-40">
+    <div className="flex flex-col items-center justify-center h-screen text-text p-4 ml-29">
       <p className="text-4xl mb-6">
         Hope you enjoyed my profile! If you did you are very welcome to click
         the like button

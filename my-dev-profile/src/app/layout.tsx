@@ -3,15 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Tai's Profile",
@@ -26,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="bg-background"
       >
         {/* side navigation bar*/}
-        <div className="hidden fixed border-text lg:flex flex-col items-center border-r-1 h-screen w-29 bg-sidebar">
+        <div className="hidden fixed border-text lg:flex flex-col items-center border-r-1 h-screen w-29 bg-sidebar ">
           <nav
             className="flex flex-col items-start text-center mt-25 text-font"
             style={{ fontFamily: "pixelFont" }}
