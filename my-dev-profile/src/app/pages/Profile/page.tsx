@@ -22,10 +22,12 @@ const ProfilePage = () => {
     { trait: "Silly" },
     { trait: "Team player" },
     { trait: "Curious" },
+    { trait: "Naruto fanboi" },
   ];
   
   const hobbies = [
     { hobby: "Gaming" },
+    { hobby: "Coding" },
     { hobby: "Reading" },
     { hobby: "Pour-over Coffee"},
     { hobby: "Doodling" },
@@ -46,14 +48,17 @@ const ProfilePage = () => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-lvh bg-background "
+      className="flex flex-col items-center justify-center min-h-lvh"
       style={{ fontFamily: "pixelFont" }}
     >
-      <div className="flex flex-col lg:flex-row text-text p-4 lg:ml-40">
+      <div className="flex-col lg:flex-row text-text p-4 flex 2xl:ml-40">
+        {/*RIGHT COLUMN: Projects*/}
         <div className="flex gap-10 lg:flex-row flex-col-reverse items-center">
           <ProjectList />
-          <div className="flex flex-col">
+          <div className="flex flex-col"> 
+            {/* TOP CONTAINER */}
             <div className="flex flex-col-2 justify-evenly w-230">
+              {/* RIGHT COLUMN: Stats + Traits + Hobbies */}
               <div className="flex flex-col gap-10 mt-10 h-75">
                 <section className="flex flex-col mt-5 justify-baseline">
                   <h1 className="text-4xl">Stats</h1>
@@ -65,7 +70,7 @@ const ProfilePage = () => {
                       <span className="flex text-lg">{stat}</span>
                       <div className="flex w-50 h-5 bg-gray-900 rounded-full overflow-hidden">
                         <div
-                          className="flex h-full bg-text transition-all duration-500"
+                          className="flex h-full bg-text"
                           style={{ width: `${fillPercent}%` }}
                         ></div>
                       </div>
@@ -91,7 +96,7 @@ const ProfilePage = () => {
                   </section>
                 </div>
               </div>
-              {/* Profile image container */}
+              {/* LEFT COLUM: Profile image container */}
               <div className="flex flex-col relative w-90 p-4 overflow-hidden">
                 <div className="flex justify-center mb-2">
                   <button
@@ -129,6 +134,7 @@ const ProfilePage = () => {
                 )}
               </div>
             </div>
+            {/* BOTTOM CONTAINER */}
             <div className="flex flex-row items-center gap-4">
               <button
                 onClick={() =>
