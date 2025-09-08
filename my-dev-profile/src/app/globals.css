@@ -24,7 +24,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #22333b;
     --foreground: #ededed;
   }
 }
@@ -37,4 +37,58 @@ body {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+@keyframes overlay-in-next {
+  from {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes overlay-out-next {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+}
+@keyframes overlay-in-prev {
+  from {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes overlay-out-prev {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+.overlay-in-next {
+  animation: overlay-in-next 0.5s ease forwards;
+}
+.overlay-out-next {
+  animation: overlay-out-next 0.5s ease forwards;
+}
+.overlay-in-prev {
+  animation: overlay-in-prev 0.5s ease forwards;
+}
+.overlay-out-prev {
+  animation: overlay-out-prev 0.5s ease forwards;
 }
