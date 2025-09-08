@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 const DISTANCE = 150; // px
 const RESET_DELAY = 2000; // ms
@@ -45,7 +46,9 @@ export default function EscapeButton({ text }: EscapeButtonProps) {
         style={{ transform }}
       >
         {text === "" ? (
-          <img
+          <Image
+            width={40}
+            height={32}
             src="/thumbs-down.svg"
             alt="Escape Button"
             className="w-10 h-8 -scale-x-100"

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const ProjectList = () => {
   const projects = [
@@ -47,9 +48,11 @@ const ProjectList = () => {
         {projects.map((project) => (
           <div key={project.name} className="m-5 bg-teal-900">
             <div className="p-4 flex flex-col border-1 border-text w-80 h-76 items-center">
-              <img
+              <Image
                 src={project.image}
                 alt={project.name}
+                width={300}
+                height={200}
                 className="mb-2 h-30 object-cover"
               />
               <div className="text-center ">

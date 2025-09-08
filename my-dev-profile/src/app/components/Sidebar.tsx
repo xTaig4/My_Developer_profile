@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Sidebar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +54,7 @@ const Sidebar = () => {
             rel="noopener noreferrer"
             className="flex justify-center w-12"
           >
-            <img src="/linkedin.svg" alt="LinkedIn" />
+            <Image src="/linkedin.svg" alt="LinkedIn" width={40} height={32} />
           </Link>
           <Link
             href="https://github.com/xTaig4"
@@ -61,7 +62,7 @@ const Sidebar = () => {
             rel="noopener noreferrer"
             className="flex justify-center"
           >
-            <img src="/github.svg" alt="Github" />
+            <Image src="/github.svg" alt="Github" width={40} height={32} />
           </Link>
         </div>
       </nav>
