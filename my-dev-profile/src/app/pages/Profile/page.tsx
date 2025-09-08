@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { useState } from "react";
 import SkillsBox from "@/app/components/SkillsBox";
 import ProfileBox from "@/app/components/ProfileBox";
@@ -7,9 +8,6 @@ import ProjectList from "@/app/components/ProjectList";
 import { JSX } from "react";
 
 const ProfilePage = () => {
-  const filters: string[] = ["none", "beard1.png", "master.png"];
-  const [filterIndex, setFilterIndex] = useState(0);
-
   const stats = [
     { stat: "Strength", fillPercent: 40 },
     { stat: "Coding", fillPercent: 100 },
@@ -24,12 +22,12 @@ const ProfilePage = () => {
     { trait: "Curious" },
     { trait: "Naruto fanboi" },
   ];
-  
+
   const hobbies = [
     { hobby: "Gaming" },
     { hobby: "Coding" },
     { hobby: "Reading" },
-    { hobby: "Pour-over Coffee"},
+    { hobby: "Pour-over Coffee" },
     { hobby: "Doodling" },
   ];
 
@@ -46,6 +44,28 @@ const ProfilePage = () => {
 
   const [containerIndex, setContainerIndex] = useState(0);
 
+  const filters: string[] = ["none", "beard1.png", "master.png"];
+  const [filterIndex, setFilterIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(0);
+  const [direction, setDirection] = useState<"next" | "prev">("prev");
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const changeFilter = (dir: "next" | "prev") => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDirection(dir);
+    setPreviousIndex(filterIndex);
+    setFilterIndex((prev) => {
+      if (dir === "next") {
+        return prev < filters.length - 1 ? prev + 1 : 0;
+      } else {
+        return prev > 0 ? prev - 1 : filters.length - 1;
+      }
+    });
+  };
+  const activeFilter = filters[filterIndex];
+  const previousFilter = filters[previousIndex];
+
   return (
     <div
       className="flex flex-col items-center justify-center min-h-lvh"
@@ -55,7 +75,7 @@ const ProfilePage = () => {
         {/*RIGHT COLUMN: Projects*/}
         <div className="flex gap-10 lg:flex-row flex-col-reverse items-center">
           <ProjectList />
-          <div className="flex flex-col"> 
+          <div className="flex flex-col">
             {/* TOP CONTAINER */}
             <div className="flex flex-col-2 justify-evenly w-230">
               {/* RIGHT COLUMN: Stats + Traits + Hobbies */}
@@ -101,36 +121,63 @@ const ProfilePage = () => {
                 <div className="flex justify-center mb-2">
                   <button
                     className="text-3xl flex w-10 h-7 items-center justify-center border-1 p-1 hover:bg-gray-600"
-                    onClick={() =>
-                      setFilterIndex((prev) =>
-                        prev > 0 ? prev - 1 : filters.length - 1
-                      )
-                    }
-                  >
+                    onClick={() => changeFilter("prev")}>
                     ←
                   </button>
                   <button
                     className="text-3xl flex w-10 h-7 items-center justify-center border-1 p-1 hover:bg-gray-600"
-                    onClick={() =>
-                      setFilterIndex((prev) =>
-                        prev < filters.length - 1 ? prev + 1 : 0
-                      )
-                    }
-                  >
+                    onClick={() => changeFilter("next")}>
                     →
                   </button>
                 </div>
-                <img
+                <Image
+                  width={360}
+                  height={480}
                   src="/profile_pic.png"
                   alt="Profile"
-                  className="w-full object-cover border-1"
+                  className="w-full object-cover border-1 border-text"
                 />
-                {filters[filterIndex] !== "none" && (
-                  <img
-                    src={`/${filters[filterIndex]}`}
-                    alt="Overlay"
-                    className="p-4 absolute w-90 object-cover transition-transform duration-700 ease-in-out translate-y-5 -translate-x-5"
-                  />
+                {activeFilter !== "none" && (
+                  <div>
+                    <Image
+                      key={activeFilter}
+                      width={360}
+                      height={480}
+                      src={`/${activeFilter}`}
+                      alt="current overlay"
+                      className={`p-4 absolute w-90 object-cover
+                      ${direction === 'next' ? 'overlay-in-next' : 'overlay-in-prev'}`}
+                    />
+                    <Image
+                      key={previousFilter}
+                      width={360}
+                      height={480}
+                      src={`/${previousFilter}`}
+                      alt="previous overlay"
+                      className={`p-4 absolute w-90 object-cover
+                      ${isAnimating ? (direction === 'next' ? 'overlay-in-next' : 'overlay-in-prev') : ''}`}
+                    />
+
+                    {/* <Image
+                      key={activeFilter}
+                      width={360}
+                      height={480}
+                      src={`/${activeFilter}`}
+                      alt="current overlay"
+                      className="p-4 absolute w-90 object-cover
+                      ${direction === 'next' ? 'overlay-out-next' : 'overlay-out-prev'}
+                    />
+                  <Image
+                    key={previousFilter}
+                    width={360}
+                    height={480}
+                    src={`/${previousFilter}`}
+                    alt="previous overlay"
+                    className={`p-4 absolute w-90 object-cover
+                    ${isAnimating ? (direction === 'next' ? 'overlay-in-next' : 'overlay-in-prev') : ''}`}
+                    /> */}
+
+                  </div>
                 )}
               </div>
             </div>

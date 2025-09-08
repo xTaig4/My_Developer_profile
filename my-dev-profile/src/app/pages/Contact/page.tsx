@@ -3,6 +3,7 @@ import React from "react";
 import ContactCard from "@/app/components/ContactCard";
 import EscapeButton from "@/app/components/EscapeButton";
 import { useState } from "react";
+import Image from "next/image";
 
 const ContactPage = () => {
   const [showCard, setShowCard] = useState(false);
@@ -18,10 +19,12 @@ const ContactPage = () => {
           className="bg-button text-button-text hover:bg-emerald-600 font-bold py-2 px-4 rounded mb-6"
           onClick={() => setShowCard(!showCard)}
         >
-          <img
+          <Image
             src="/thumbs-up.svg"
             alt="Like Button"
             className="w-10 h-8 -scale-x-100"
+            width={40}
+            height={32}
           />
         </button>
         <EscapeButton text="" />
