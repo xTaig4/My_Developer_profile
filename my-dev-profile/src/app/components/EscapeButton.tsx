@@ -1,9 +1,14 @@
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
-const DISTANCE = 120; // px
+const DISTANCE = 150; // px
 const RESET_DELAY = 2000; // ms
 
-export default function EscapeButton() {
+interface EscapeButtonProps {
+  text?: string;
+}
+
+export default function EscapeButton({ text }: EscapeButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [transform, setTransform] = useState<string>("");
 
@@ -26,25 +31,31 @@ export default function EscapeButton() {
       const angle = Math.atan2(dy, dx);
       const moveX = -Math.cos(angle) * DISTANCE;
       const moveY = -Math.sin(angle) * DISTANCE;
-      setTransform(`translate(${moveX}px, ${moveY}px)`);
+      setTransform(`translate(${moveX * 2}px, ${moveY * 2}px)`);
 
       // Reset after delay
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => setTransform(""), RESET_DELAY);
     }
   };
-
   return (
-    <div
-      className=""
-      onMouseMove={handleMouseMove}
-    >
+    <div className="" onMouseMove={handleMouseMove}>
       <button
         ref={buttonRef}
-        className="relative bg-blue-500 text-white px-4 py-2 rounded transition-transform duration-200"
+        className="relative bg-button text-button-text font-bold px-4 py-2 rounded transition-transform duration-200"
         style={{ transform }}
       >
-        Catch Me!
+        {text === "" ? (
+          <Image
+            width={40}
+            height={32}
+            src="/thumbs-down.svg"
+            alt="Escape Button"
+            className="w-10 h-8 -scale-x-100"
+          />
+        ) : (
+          text
+        )}
       </button>
     </div>
   );

@@ -1,33 +1,48 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
+import ContactCard from "@/app/components/ContactCard";
+import EscapeButton from "@/app/components/EscapeButton";
+import { useState } from "react";
+import Image from "next/image";
 
 const ContactPage = () => {
+  const [showCard, setShowCard] = useState(false);
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white p-4">
-      <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
-      <p className="text-lg mb-6">Feel free to reach out for any inquiries or collaborations!</p>
-      <form className="w-full max-w-md">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-        />
-        <textarea
-          placeholder="Your Message"
-          className="w-full p-2 mb-4 border border-gray-300 rounded h-32"
-        ></textarea>
+    <div className="flex flex-col items-center justify-center h-screen text-text p-4 ml-29">
+      <p className="text-4xl mb-6">
+        Hope you enjoyed my profile! If you did you are very welcome to click
+        the like button
+      </p>
+      <div className="flex flex-row gap-30">
         <button
-          type="submit"
-          className="w-20 bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200"
+          className="bg-button text-button-text hover:bg-emerald-600 font-bold py-2 px-4 rounded mb-6"
+          onClick={() => setShowCard(!showCard)}
         >
-          Send Message
+          <Image
+            src="/thumbs-up.svg"
+            alt="Like Button"
+            className="w-10 h-8 -scale-x-100"
+            width={40}
+            height={32}
+          />
         </button>
-      </form>
+        <EscapeButton text="" />
+      </div>
+      {showCard && (
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-2xl mb-4 text-center">
+            Thank you for your Like! Feel free to contact me if you have any
+            <br />
+            questions, feedback or interersted in hiring me.
+          </p>
+          <ContactCard
+            name="Tai Nguyen"
+            email="dummyMail@gmail.com"
+            phone="(+45) 00 00 00 00"
+          />
+        </div>
+      )}
     </div>
   );
 };
