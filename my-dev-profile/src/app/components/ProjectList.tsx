@@ -14,19 +14,20 @@ const ProjectList = () => {
       link: "https://github.com/xTaig4/WeebWords_v2",
     },
     {
+      name: "QuotesAPI",
+      description:
+        "A RESTful API for fetching random quotes. Used in Weeb Words web app.",
+      image:
+        "https://raw.githubusercontent.com/xTaig4/QuotesAPI/refs/heads/main/image_2025-09-30_160812512.png",
+      link: "https://github.com/xTaig4/QuotesAPI",
+    },
+    {
       name: "Runaway",
       description:
         "Runaway is a simple, addictive game inspired by the classic Flappy Bird. The goal is to guide your character through obstacles, achieving the highest possible score.",
       image:
         "https://raw.githubusercontent.com/xTaig4/Runaway/refs/heads/main/Assets/Screenshots/RunawayGame.JPG",
       link: "https://github.com/xTaig4/Runaway",
-    },
-    {
-      name: "Project C",
-      description: "Description of Project C",
-      image:
-        "https://raw.githubusercontent.com/xTaig4/My_Developer_profile/main/my-dev-profile/Screenshots/Home.JPG",
-      link: "",
     },
     {
       name: "Project D",
@@ -47,7 +48,7 @@ const ProjectList = () => {
       >
         {projects.map((project) => (
           <div
-            className="border-text m-5 flex h-76 w-80 flex-col items-center border-1 bg-teal-900 p-4 hover:bg-zinc-600"
+            className="border-text m-5 flex max-h-76 w-80 flex-col items-center border-1 bg-teal-900 p-4 hover:bg-zinc-600"
             key={project.name}
             onClick={() => {
               if (project.link) {
@@ -65,7 +66,7 @@ const ProjectList = () => {
             />
             <div className="text-center">
               <strong>{project.name}</strong>
-              <p className="mt-1 max-h-0 text-sm text-gray-300 transition-all duration-300">
+              <p className="mt-1 text-sm text-gray-300 transition-all duration-300">
                 {project.description}
               </p>
             </div>
