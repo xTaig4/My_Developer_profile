@@ -47,29 +47,6 @@ const ProfilePage = () => {
   const filters: string[] = ["", "beard1.png", "master.png"];
   const [filterIndex, setFilterIndex] = useState(0);
 
-  const [previousIndex, setPreviousIndex] = useState(0);
-  const [direction, setDirection] = useState<"next" | "prev">("prev");
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const changeFilter = (dir: "next" | "prev") => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setDirection(dir);
-    setPreviousIndex(filterIndex);
-    setFilterIndex((prev) => {
-      if (dir === "next") {
-        return prev < filters.length - 1 ? prev + 1 : 0;
-      } else {
-        return prev > 0 ? prev - 1 : filters.length - 1;
-      }
-    });
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
-  };
-  const activeFilter = filters[filterIndex];
-  const previousFilter = filters[previousIndex];
-
   return (
     <div
       className="flex min-h-lvh flex-col items-center justify-center"
