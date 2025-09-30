@@ -38,29 +38,36 @@ const ProjectList = () => {
   ];
   return (
     <div
-      className="h-200 w-100 overflow-y-auto border-1 border-text rounded-lg hide-scrollbar"
+      className="border-text hide-scrollbar h-200 w-100 overflow-y-auto rounded-lg border-1"
       style={{ direction: "rtl", fontFamily: "pixelFont" }}
     >
       <section
-        className="flex-col place-items-center "
+        className="flex-col place-items-center"
         style={{ direction: "ltr" }}
       >
         {projects.map((project) => (
-          <div key={project.name} className="m-5 bg-teal-900">
-            <div className="p-4 flex flex-col border-1 border-text w-80 h-76 items-center">
-              <Image
-                src={project.image}
-                alt={project.name}
-                width={300}
-                height={200}
-                className="mb-2 h-30 object-cover"
-              />
-              <div className="text-center ">
-                <strong>{project.name}</strong>
-                <p className=" text-sm text-gray-300 mt-1 max-h-0  transition-all duration-300">
-                  {project.description}
-                </p>
-              </div>
+          <div
+            className="border-text m-5 flex h-76 w-80 flex-col items-center border-1 bg-teal-900 p-4 hover:bg-zinc-600"
+            key={project.name}
+            onClick={() => {
+              if (project.link) {
+                window.open(project.link);
+              }
+            }}
+            style={{ cursor: project.link ? "pointer" : "default" }}
+          >
+            <Image
+              src={project.image}
+              alt={project.name}
+              width={300}
+              height={200}
+              className="mb-2 h-30 object-cover"
+            />
+            <div className="text-center">
+              <strong>{project.name}</strong>
+              <p className="mt-1 max-h-0 text-sm text-gray-300 transition-all duration-300">
+                {project.description}
+              </p>
             </div>
           </div>
         ))}
