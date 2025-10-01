@@ -6,6 +6,14 @@ import Image from "next/image";
 const ProjectList = () => {
   const projects = [
     {
+      name: "Kanji Tales",
+      description:
+        "A webapp where users kan add kanji, they have learned and generate short stories or sentence of",
+      image:
+        "https://raw.githubusercontent.com/xTaig4/KanjiTales/refs/heads/main/kanji_tales/public/KanjiTales.JPG",
+      link: "https://github.com/xTaig4/KanjiTales",
+    },
+    {
       name: "Weeb Words",
       description:
         "Weeb Words is a sleek and minimalist anime quote web app where users can view, filter, and submit inspirational, emotional, or funny quotes from popular anime characters.",
@@ -28,13 +36,6 @@ const ProjectList = () => {
       image:
         "https://raw.githubusercontent.com/xTaig4/Runaway/refs/heads/main/Assets/Screenshots/RunawayGame.JPG",
       link: "https://github.com/xTaig4/Runaway",
-    },
-    {
-      name: "Project D",
-      description: "Description of Project C",
-      image:
-        "https://raw.githubusercontent.com/xTaig4/My_Developer_profile/main/my-dev-profile/Screenshots/Home.JPG",
-      link: "",
     },
   ];
   return (
