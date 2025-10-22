@@ -17,9 +17,9 @@ const ProfilePage = () => {
 
   const traits = [
     { trait: "Detail-oriented" },
-    { trait: "Silly" },
+    { trait: "Resillient" },
     { trait: "Team player" },
-    { trait: "Curious" },
+    { trait: "Silly" },
     { trait: "Naruto fanboi" },
   ];
 
