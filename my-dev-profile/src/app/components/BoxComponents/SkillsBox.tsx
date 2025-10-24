@@ -15,7 +15,7 @@ const SkillsBox = () => {
   return (
     <div className="p-4" style={{ fontFamily: "pixelFont" }}>
       <h1 className="text-text mb-5 text-2xl font-bold">Skills</h1>
-      <div className="text-text grid max-w-5xl grid-cols-1 gap-x-30 gap-y-4 lg:grid-cols-2">
+      <div className="text-text grid max-w-5xl grid-cols-2 gap-x-30 gap-y-4">
         {skills.map((skill) => (
           <li className="flex items-center text-2xl" key={skill.name}>
             <span className="w-50">{skill.name}</span>
