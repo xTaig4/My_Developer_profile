@@ -1,16 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import SkillsBox from "@/app/components/BoxComponents/SkillsBox";
-import ProfileBox from "@/app/components/ProfileBox";
 import ProjectList from "@/app/components/ProjectList";
 import HobbiesBox from "@/app/components/BoxComponents/HobbiesBox";
 import TraitsBox from "@/app/components/BoxComponents/TraitsBox";
 import DisplayBox from "@/app/components/BoxComponents/DisplayBox";
 import ProfileImageBox from "@/app/components/BoxComponents/ProfileImageBox";
-
-import { JSX } from "react";
 
 const ProfilePage = () => {
   const stats = [
@@ -86,7 +80,7 @@ const ProfilePage = () => {
               <div className="flex justify-center">
                 <DisplayBox />
               </div>
-              <div className="block flex justify-center lg:hidden">
+              <div className="flex justify-center lg:hidden">
                 <ProjectList />
               </div>
             </div>
