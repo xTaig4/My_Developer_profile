@@ -40,16 +40,16 @@ const ProjectList = () => {
   ];
   return (
     <div
-      className="border-text hide-scrollbar h-200 w-100 overflow-y-auto rounded-lg border-1"
-      style={{ direction: "rtl", fontFamily: "pixelFont" }}
+      className="border-text hide-scrollbar h-auto w-200 rounded-lg border-1 lg:h-200 lg:w-95 lg:overflow-y-auto"
+      style={{ fontFamily: "pixelFont" }}
     >
       <section
-        className="flex-col place-items-center"
+        className="grid-row-2 grid grid-cols-2 place-items-center lg:flex lg:flex-col"
         style={{ direction: "ltr" }}
       >
         {projects.map((project) => (
           <div
-            className="border-text m-5 flex max-h-76 w-80 flex-col items-center border-1 bg-teal-900 p-4 hover:bg-zinc-600"
+            className="border-text m-5 flex h-76 w-80 flex-col items-center border-1 bg-teal-900 p-4 hover:bg-zinc-600"
             key={project.name}
             onClick={() => {
               if (project.link) {

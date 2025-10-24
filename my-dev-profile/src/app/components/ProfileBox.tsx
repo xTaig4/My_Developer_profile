@@ -4,7 +4,7 @@ import React from "react";
 
 const ProfileBox = () => {
   return (
-    <div className="flex gap-50 border-1 p-4 h-75 w-200">
+    <div className="flex gap-50 p-4">
       <section>
         <h1>The Developer’s Chronicle</h1>
         <p>
