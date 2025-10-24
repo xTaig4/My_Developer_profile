@@ -1,10 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import SkillsBox from "@/app/components/SkillsBox";
+import { useEffect, useState } from "react";
+import SkillsBox from "@/app/components/BoxComponents/SkillsBox";
 import ProfileBox from "@/app/components/ProfileBox";
 import ProjectList from "@/app/components/ProjectList";
+import HobbiesBox from "@/app/components/BoxComponents/HobbiesBox";
+import TraitsBox from "@/app/components/BoxComponents/TraitsBox";
+import DisplayBox from "@/app/components/BoxComponents/DisplayBox";
+import ProfileImageBox from "@/app/components/BoxComponents/ProfileImageBox";
+
 import { JSX } from "react";
 
 const ProfilePage = () => {
@@ -31,21 +36,7 @@ const ProfilePage = () => {
     { hobby: "Doodling" },
   ];
 
-  const containers: { name: string; content: JSX.Element }[] = [
-    {
-      name: "Profile",
-      content: <ProfileBox />,
-    },
-    {
-      name: "Skills",
-      content: <SkillsBox />,
-    },
-  ];
-
-  const [containerIndex, setContainerIndex] = useState(0);
-
   const filters: string[] = ["", "beard1.png", "master.png"];
-  const [filterIndex, setFilterIndex] = useState(0);
 
   return (
     <div
@@ -55,13 +46,15 @@ const ProfilePage = () => {
       <div className="text-text flex flex-col p-4 lg:flex-row 2xl:ml-40">
         {/*RIGHT COLUMN: Projects*/}
         <div className="flex flex-col-reverse items-center gap-10 lg:flex-row">
-          <ProjectList />
-          <div className="flex flex-col">
+          <div className="mt-15 hidden lg:block">
+            <ProjectList />
+          </div>
+          <div className="mt-10 flex flex-col gap-4">
             {/* TOP CONTAINER */}
             <div className="flex-col-2 flex w-230 justify-evenly">
-              {/* RIGHT COLUMN: Stats + Traits + Hobbies */}
-              <div className="mt-10 flex h-75 flex-col gap-10">
-                <section className="mt-5 flex flex-col justify-baseline">
+              {/* LEFT COLUMN: Stats + Traits + Hobbies */}
+              <div className="flex h-75 flex-col gap-10">
+                <section className="flex flex-col justify-baseline">
                   <h1 className="text-4xl">Stats</h1>
                   {stats.map(({ stat, fillPercent }) => (
                     <div
@@ -78,93 +71,24 @@ const ProfilePage = () => {
                     </div>
                   ))}
                 </section>
+                {/* Traits + Hobbies */}
                 <div className="flex-col-2 flex gap-15">
-                  <section>
-                    {/* Traits */}
-                    <h1>Traits</h1>
-                    <span>
-                      {traits.map(({ trait }) => (
-                        <li key={trait}>{trait}</li>
-                      ))}
-                    </span>
-                  </section>
-                  <section>
-                    <h1>Hobbies</h1>
-                    <span>
-                      {hobbies.map(({ hobby }) => (
-                        <li key={hobby}>{hobby}</li>
-                      ))}
-                    </span>
-                  </section>
+                  <TraitsBox traits={traits} />
+                  <HobbiesBox hobbies={hobbies} />
                 </div>
+                {/* RIGHT COLUMN: Profile Image */}
               </div>
-              {/* LEFT COLUM: Profile image container */}
-              <div className="relative flex w-90 flex-col overflow-hidden p-4">
-                <div className="mb-2 flex justify-center">
-                  <button
-                    className="flex h-7 w-10 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600"
-                    onClick={() =>
-                      setFilterIndex((prev) =>
-                        prev > 0 ? prev - 1 : filters.length - 1,
-                      )
-                    }
-                  >
-                    ←
-                  </button>
-                  <button
-                    className="flex h-7 w-10 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600"
-                    onClick={() =>
-                      setFilterIndex((prev) =>
-                        prev < filters.length - 1 ? prev + 1 : 0,
-                      )
-                    }
-                  >
-                    →
-                  </button>
-                </div>
-                <Image
-                  width={360}
-                  height={480}
-                  src="/profile_pic.png"
-                  alt="Profile"
-                  className="border-text w-full border-1 object-cover"
-                />
-                {filters[filterIndex] !== "" && (
-                  <Image
-                    width={360}
-                    height={480}
-                    src={`/${filters[filterIndex]}`}
-                    alt="current overlay"
-                    className={`absolute w-90 -translate-x-5 translate-y-6 object-cover p-4`}
-                  />
-                )}
-              </div>
+              <ProfileImageBox filters={filters} />
             </div>
             {/* BOTTOM CONTAINER */}
-            <div className="flex flex-row items-center gap-4">
-              <button
-                onClick={() =>
-                  setContainerIndex((prev) =>
-                    prev > 0 ? prev - 1 : containers.length - 1,
-                  )
-                }
-                className="left-150 flex h-7 w-10 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600"
-              >
-                ←
-              </button>
-              <div className="flex gap-50">
-                {containers[containerIndex].content}
+
+            <div className="flex flex-col justify-evenly gap-10 lg:items-center lg:gap-5">
+              <div className="flex justify-center">
+                <DisplayBox />
               </div>
-              <button
-                onClick={() =>
-                  setContainerIndex((prev) =>
-                    prev < containers.length - 1 ? prev + 1 : 0,
-                  )
-                }
-                className="right-96 flex h-7 w-10 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600"
-              >
-                →
-              </button>
+              <div className="block flex justify-center lg:hidden">
+                <ProjectList />
+              </div>
             </div>
           </div>
         </div>
