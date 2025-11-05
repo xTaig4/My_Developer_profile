@@ -30,8 +30,6 @@ const ProfilePage = () => {
     { hobby: "Doodling" },
   ];
 
-  const filters: string[] = ["", "beard1.png", "master.png"];
-
   return (
     <div
       className="flex min-h-lvh flex-col items-center justify-center"
@@ -72,11 +70,11 @@ const ProfilePage = () => {
                 </div>
                 {/* RIGHT COLUMN: Profile Image */}
               </div>
-              <ProfileImageBox filters={filters} />
+              <ProfileImageBox />
             </div>
             {/* BOTTOM CONTAINER */}
 
-            <div className="flex flex-col justify-evenly gap-10 lg:items-center lg:gap-5">
+            <div className="mr-5 flex flex-col justify-evenly gap-10 lg:items-center lg:gap-5">
               <div className="flex justify-center">
                 <DisplayBox />
               </div>

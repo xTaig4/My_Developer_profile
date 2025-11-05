@@ -1,33 +1,23 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import { useState } from "react";
+import ArrowButton from "../ArrowButtons";
 
-interface ProfileImageBoxProps {
-  filters: string[];
-}
-
-const ProfileImageBox = ({ filters }: ProfileImageBoxProps) => {
+const ProfileImageBox = () => {
   const [filterIndex, setFilterIndex] = useState(0);
+  const filters: string[] = ["", "beard1.png", "master.png"];
 
   return (
     <div className="border-text relative flex w-90 flex-col overflow-hidden border-1">
       <div>
-        <button
-          className="absolute left-2 z-1 flex h-7 w-10 translate-y-116 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600"
-          onClick={() =>
-            setFilterIndex((prev) => (prev > 0 ? prev - 1 : filters.length - 1))
-          }
-        >
-          ←
-        </button>
-        <button
-          className="absolute right-2 z-1 flex h-7 w-10 translate-y-116 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600"
-          onClick={() =>
-            setFilterIndex((prev) => (prev < filters.length - 1 ? prev + 1 : 0))
-          }
-        >
-          →
-        </button>
+        <ArrowButton
+          classNameLeft="absolute left-2 translate-y-116"
+          classNameRight="absolute right-2 translate-y-116"
+          collection={filters}
+          currentIndex={filterIndex}
+          onIndexChange={setFilterIndex}
+        />
       </div>
+
       <Image
         width={360}
         height={480}
