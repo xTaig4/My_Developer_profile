@@ -8,18 +8,19 @@ import ProfileImageBox from "@/app/components/BoxComponents/ProfileImageBox";
 
 const ProfilePage = () => {
   const stats = [
-    { stat: "Coding Strength", fillPercent: 70 },
-    { stat: "Coding Speed", fillPercent: 94 },
+    { stat: "Coding Strength", fillPercent: 90 },
+    { stat: "Coding Speed", fillPercent: 82 },
     { stat: "Debugging Skills", fillPercent: 69 },
     { stat: "Charisma", fillPercent: 66 },
     { stat: "Braincells", fillPercent: 10 },
   ];
 
   const traits = [
-    { trait: "Detail-oriented" },
-    { trait: "Resillient" },
+    { trait: "Chill" },
+    { trait: "Resilient" },
     { trait: "Team player" },
-    { trait: "Silly" },
+    { trait: "Weirdo" },
+    { trait: "Certified nerd" },
     { trait: "Naruto fanboi" },
   ];
 
@@ -28,7 +29,7 @@ const ProfilePage = () => {
     { hobby: "Coding" },
     { hobby: "Reading" },
     { hobby: "Pour-over Coffee" },
-    { hobby: "Doodling" },
+    { hobby: "Doodle" },
   ];
 
   return (
