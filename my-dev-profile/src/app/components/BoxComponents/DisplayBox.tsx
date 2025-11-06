@@ -26,8 +26,8 @@ const DisplayBox = () => {
           collection={containers.map((c) => c.name)}
           currentIndex={containerIndex}
           onIndexChange={setContainerIndex}
-          classNameLeft="left-150"
-          classNameRight="right-96"
+          classNameLeft=""
+          classNameRight=""
         />
       </div>
     </div>

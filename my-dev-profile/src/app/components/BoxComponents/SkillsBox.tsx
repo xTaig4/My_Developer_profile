@@ -5,7 +5,8 @@ import React from "react";
 const SkillsBox = () => {
   const skills = [
     { name: "C#", rating: 5 },
-    { name: "JavaScript", rating: 5 },
+    { name: "ASP.NET", rating: 4 },
+    { name: "Docker", rating: 3 },
     { name: "TypeScript", rating: 4 },
     { name: "HTML, CSS", rating: 5 },
     { name: "React", rating: 5 },

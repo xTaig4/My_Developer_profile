@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface ArrowProps {
   collection: string[];
   currentIndex: number;
@@ -15,8 +13,6 @@ const ArrowButtons = ({
   classNameLeft,
   classNameRight,
 }: ArrowProps) => {
-  const [index, setIndex] = useState(0);
-
   const handleLeftArrow = () => {
     const newIndex =
       currentIndex > 0 ? currentIndex - 1 : collection.length - 1;

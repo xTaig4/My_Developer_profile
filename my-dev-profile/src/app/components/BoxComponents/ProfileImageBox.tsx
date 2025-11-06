@@ -1,10 +1,15 @@
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import ArrowButton from "../ArrowButtons";
 
 const ProfileImageBox = () => {
   const [filterIndex, setFilterIndex] = useState(0);
-  const filters: string[] = ["", "beard1.png", "master.png"];
+  const filters: string[] = [
+    "",
+    "beard1.png",
+    "master.png",
+    "sunglass_cigar.png",
+  ];
 
   return (
     <div className="border-text relative flex w-90 flex-col overflow-hidden border-1">
