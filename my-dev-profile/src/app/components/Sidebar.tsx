@@ -27,9 +27,9 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`fixed h-screen w-29 border-r-1 border-text bg-sidebar flex-col items-center 
-      transition-all duration-500 transform ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-        }`}
+      className={`border-text bg-sidebar fixed h-screen w-29 transform flex-col items-center border-r-1 transition-all duration-500 ${
+        isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+      }`}
     >
       <nav
         className="text-font mt-25 flex flex-col items-start text-center"
@@ -37,13 +37,13 @@ const Sidebar = () => {
       >
         <Link
           href="/"
-          className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+          className="text-text border-text flex h-15 w-29 items-center justify-center border-1 hover:underline"
         >
           Home
         </Link>
         <Link
           href="/pages/Contact"
-          className="w-29 h-15 flex items-center justify-center border-1 text-text hover:underline border-text"
+          className="text-text border-text flex h-15 w-29 items-center justify-center border-1 hover:underline"
         >
           Contact
         </Link>
@@ -52,7 +52,7 @@ const Sidebar = () => {
             href="https://www.linkedin.com/in/tai-nguyen-452753235/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex justify-center w-12"
+            className="flex w-12 justify-center"
           >
             <Image src="/linkedin.svg" alt="LinkedIn" width={40} height={32} />
           </Link>

@@ -9,8 +9,8 @@ import ProfileImageBox from "@/app/components/BoxComponents/ProfileImageBox";
 const ProfilePage = () => {
   const stats = [
     { stat: "Coding Strength", fillPercent: 90 },
-    { stat: "Coding Speed", fillPercent: 82 },
-    { stat: "Debugging Skills", fillPercent: 69 },
+    { stat: "Coding Speed", fillPercent: 75 },
+    { stat: "Debugging Skills", fillPercent: 83 },
     { stat: "Charisma", fillPercent: 66 },
     { stat: "Braincells", fillPercent: 10 },
   ];
