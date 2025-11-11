@@ -10,7 +10,7 @@ const ProjectList = () => {
       description:
         "My second upcoming profile website showcasing my skills, projects, and contact information.",
       image:
-        "https://raw.githubusercontent.com/xTaig4/BlueSky-Profile-project/refs/heads/main/public/screenshots/demo_shot.JPG?token=GHSAT0AAAAAADKZ7VZRTFS3WNQIRKYXIUTM2ISQEHQ",
+        "https://raw.githubusercontent.com/xTaig4/BlueSky-Profile-project/refs/heads/main/public/screenshots/demo_shot.JPG",
       link: "https://blue-sky-profile-project.vercel.app",
     },
     {
