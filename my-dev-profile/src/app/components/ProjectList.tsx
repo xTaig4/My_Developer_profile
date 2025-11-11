@@ -6,6 +6,14 @@ import Image from "next/image";
 const ProjectList = () => {
   const projects = [
     {
+      name: "My Developer Profile",
+      description:
+        "My second upcoming profile website showcasing my skills, projects, and contact information.",
+      image:
+        "https://raw.githubusercontent.com/xTaig4/BlueSky-Profile-project/refs/heads/main/public/screenshots/demo_shot.JPG?token=GHSAT0AAAAAADKZ7VZRTFS3WNQIRKYXIUTM2ISQEHQ",
+      link: "https://blue-sky-profile-project.vercel.app",
+    },
+    {
       name: "Kanji Tales",
       description:
         "A webapp where users kan add kanji, they have learned and generate short stories or sentence of",
