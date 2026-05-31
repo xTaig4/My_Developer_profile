@@ -46,42 +46,76 @@ const ProjectList = () => {
       link: "https://github.com/xTaig4/Runaway",
     },
   ];
+
   return (
     <div
-      className="border-text hide-scrollbar h-auto w-200 rounded-lg border-1 lg:h-200 lg:w-95 lg:overflow-y-auto"
-      style={{ fontFamily: "pixelFont" }}
+      className="panel hide-scrollbar font-mono text-ink lg:h-200 lg:w-95 lg:overflow-y-auto"
+      style={{ direction: "ltr" }}
     >
-      <section
-        className="grid-row-2 grid grid-cols-2 place-items-center lg:flex lg:flex-col"
-        style={{ direction: "ltr" }}
+      <div className="marker font-display">projects</div>
+
+      <ul
+        className="flex flex-col"
+        style={{ marginTop: "var(--space-md)", gap: "var(--space-md)" }}
       >
-        {projects.map((project) => (
-          <div
-            className="border-text m-5 flex h-76 w-80 flex-col items-center border-1 bg-teal-900 p-4 hover:bg-zinc-600"
-            key={project.name}
-            onClick={() => {
-              if (project.link) {
-                window.open(project.link);
-              }
-            }}
-            style={{ cursor: project.link ? "pointer" : "default" }}
-          >
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={300}
-              height={200}
-              className="mb-2 h-30 object-cover"
-            />
-            <div className="text-center">
-              <strong>{project.name}</strong>
-              <p className="mt-1 text-sm text-gray-300 transition-all duration-300">
+        {projects.map((project, i) => (
+          <li key={project.name}>
+            <div
+              className="panel--inset flex cursor-pointer flex-col bg-surface transition-colors hover:bg-surface-2"
+              onClick={() => {
+                if (project.link) {
+                  window.open(project.link);
+                }
+              }}
+              style={{ cursor: project.link ? "pointer" : "default" }}
+            >
+              <div
+                className="flex items-baseline"
+                style={{ gap: "var(--space-sm)" }}
+              >
+                <span
+                  className="text-ink-faint"
+                  style={{ fontSize: "var(--type-2xs)" }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className="font-display text-ink"
+                  style={{ fontSize: "var(--type-base)" }}
+                >
+                  {project.name}
+                </span>
+              </div>
+
+              <div
+                className="overflow-hidden border border-border"
+                style={{
+                  marginTop: "var(--space-sm)",
+                  borderRadius: "2px",
+                }}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  width={300}
+                  height={200}
+                  className="h-30 w-full object-cover"
+                />
+              </div>
+
+              <p
+                className="text-ink-muted"
+                style={{
+                  marginTop: "var(--space-sm)",
+                  fontSize: "var(--type-sm)",
+                }}
+              >
                 {project.description}
               </p>
             </div>
-          </div>
+          </li>
         ))}
-      </section>
+      </ul>
     </div>
   );
 };

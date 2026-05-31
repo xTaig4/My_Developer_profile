@@ -26,18 +26,22 @@ const ArrowButtons = ({
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row gap-px">
       <button
+        type="button"
         onClick={handleLeftArrow}
-        className={`z-1 flex h-7 w-10 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600 ${classNameLeft}`}
+        aria-label="Previous"
+        className={`btn btn--ghost btn--icon z-1 hover:bg-surface-2 ${classNameLeft ?? ""}`}
       >
-        ←
+        {"<"}
       </button>
       <button
+        type="button"
         onClick={handleRightArrow}
-        className={`z-1 flex h-7 w-10 items-center justify-center border-1 p-1 text-3xl hover:bg-gray-600 ${classNameRight}`}
+        aria-label="Next"
+        className={`btn btn--ghost btn--icon z-1 hover:bg-surface-2 ${classNameRight ?? ""}`}
       >
-        →
+        {">"}
       </button>
     </div>
   );

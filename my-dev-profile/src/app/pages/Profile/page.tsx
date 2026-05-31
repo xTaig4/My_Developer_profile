@@ -34,57 +34,81 @@ const ProfilePage = () => {
 
   return (
     <div
-      className="flex min-h-lvh flex-col items-center justify-center"
-      style={{ fontFamily: "pixelFont" }}
+      className="min-h-lvh bg-app font-mono text-ink"
+      style={{ padding: "var(--space-xl)" }}
     >
-      <div className="text-text flex flex-col p-4 lg:flex-row 2xl:ml-40">
-        {/*RIGHT COLUMN: Projects*/}
-        <div className="flex flex-col-reverse items-center gap-10 lg:flex-row">
-          <div className="mt-15 hidden lg:block">
-            <ProjectList />
-          </div>
-          <div className="mt-10 flex flex-col gap-4">
-            {/* TOP CONTAINER */}
-            <div className="flex-col-2 flex w-230 justify-evenly">
-              {/* LEFT COLUMN: Stats + Traits + Hobbies */}
-              <div className="flex h-75 flex-col gap-10">
-                <section className="flex flex-col justify-baseline">
-                  <h1 className="text-4xl">Stats</h1>
-                  {stats.map(({ stat, fillPercent }) => (
+      <div
+        className="flex flex-col 2xl:ml-40"
+        style={{ gap: "var(--space-2xl)", maxWidth: "72rem" }}
+      >
+        {/* TOP: Stats / Traits / Hobbies + Profile image */}
+        <div
+          className="flex flex-col lg:flex-row"
+          style={{ gap: "var(--space-2xl)" }}
+        >
+          {/* LEFT COLUMN: Stats + Traits + Hobbies */}
+          <div
+            className="flex flex-1 flex-col"
+            style={{ gap: "var(--space-2xl)" }}
+          >
+            <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+              <div className="marker">stats</div>
+              <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+                {stats.map(({ stat, fillPercent }, i) => (
+                  <div
+                    key={stat}
+                    className="flex flex-col"
+                    style={{ gap: "var(--space-xs)" }}
+                  >
                     <div
-                      key={stat}
-                      className="mt-4 flex items-center justify-between gap-10"
+                      className="flex items-baseline justify-between"
+                      style={{ gap: "var(--space-md)" }}
                     >
-                      <span className="flex text-lg">{stat}</span>
-                      <div className="flex h-5 w-50 overflow-hidden rounded-full bg-gray-900">
-                        <div
-                          className="bg-text flex h-full"
-                          style={{ width: `${fillPercent}%` }}
-                        ></div>
-                      </div>
+                      <span
+                        className="text-ink"
+                        style={{ fontSize: "var(--type-sm)" }}
+                      >
+                        <span className="text-ink-faint">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>{" "}
+                        {stat}
+                      </span>
+                      <span
+                        className="text-ink-muted"
+                        style={{ fontSize: "var(--type-2xs)" }}
+                      >
+                        {fillPercent} / 100
+                      </span>
                     </div>
-                  ))}
-                </section>
-                {/* Traits + Hobbies */}
-                <div className="flex-col-2 flex gap-15">
-                  <TraitsBox traits={traits} />
-                  <HobbiesBox hobbies={hobbies} />
-                </div>
-                {/* RIGHT COLUMN: Profile Image */}
+                    <div
+                      className="progress"
+                      style={{ "--value": fillPercent } as React.CSSProperties}
+                    />
+                  </div>
+                ))}
               </div>
-              <ProfileImageBox />
-            </div>
-            {/* BOTTOM CONTAINER */}
+            </section>
 
-            <div className="mr-5 flex flex-col justify-evenly gap-10 lg:items-center lg:gap-5">
-              <div className="flex justify-center">
-                <DisplayBox />
-              </div>
-              <div className="flex justify-center lg:hidden">
-                <ProjectList />
-              </div>
+            {/* Traits + Hobbies */}
+            <div
+              className="flex flex-col sm:flex-row"
+              style={{ gap: "var(--space-2xl)" }}
+            >
+              <TraitsBox traits={traits} />
+              <HobbiesBox hobbies={hobbies} />
             </div>
           </div>
+
+          {/* RIGHT: Profile Image */}
+          <div className="flex-shrink-0">
+            <ProfileImageBox />
+          </div>
+        </div>
+
+        {/* BOTTOM: Display + Projects */}
+        <div className="flex flex-col" style={{ gap: "var(--space-2xl)" }}>
+          <DisplayBox />
+          <ProjectList />
         </div>
       </div>
     </div>

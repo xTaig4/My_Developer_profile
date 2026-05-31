@@ -3,38 +3,43 @@ import React from "react";
 import ContactCard from "@/app/components/ContactCard";
 import EscapeButton from "@/app/components/EscapeButton";
 import { useState } from "react";
-import Image from "next/image";
 
 const ContactPage = () => {
   const [showCard, setShowCard] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-text p-4 ml-29">
-      <p className="text-4xl mb-6">
-        Hope you enjoyed my profile! If you did you are very welcome to click
-        the like button
+    <main
+      className="flex min-h-screen flex-col bg-app text-ink ml-29"
+      style={{ padding: "var(--space-xl)", gap: "var(--space-lg)" }}
+    >
+      <div className="marker font-display">contact</div>
+
+      <p
+        className="text-ink-muted"
+        style={{ fontSize: "var(--type-sm)", maxWidth: "62ch" }}
+      >
+        End of profile. Acknowledge to reveal contact record, or decline.
       </p>
-      <div className="flex flex-row gap-30">
+
+      <div className="flex flex-row items-center" style={{ gap: "var(--space-md)" }}>
         <button
-          className="bg-button text-button-text hover:bg-emerald-600 font-bold py-2 px-4 rounded mb-6"
+          className="btn btn--accent btn--sm"
+          aria-pressed={showCard}
           onClick={() => setShowCard(!showCard)}
         >
-          <Image
-            src="/thumbs-up.svg"
-            alt="Like Button"
-            className="w-10 h-8 -scale-x-100"
-            width={40}
-            height={32}
-          />
+          [ ACK ]
         </button>
-        <EscapeButton text="" />
+        <EscapeButton text="[ DECLINE ]" />
       </div>
+
       {showCard && (
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-2xl mb-4 text-center">
-            Thank you for your Like! Feel free to contact me if you have any
-            <br />
-            questions, feedback or interersted in hiring me.
+        <div
+          className="flex flex-col"
+          style={{ gap: "var(--space-md)", maxWidth: "62ch" }}
+        >
+          <span className="tag">record unlocked</span>
+          <p className="text-ink-muted" style={{ fontSize: "var(--type-sm)" }}>
+            Open to questions, feedback, or hiring inquiries.
           </p>
           <ContactCard
             name="Tai Nguyen"
@@ -43,7 +48,7 @@ const ContactPage = () => {
           />
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

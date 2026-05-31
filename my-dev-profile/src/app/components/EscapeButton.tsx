@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 
 const DISTANCE = 150; // px
 const RESET_DELAY = 2000; // ms
@@ -11,10 +10,24 @@ interface EscapeButtonProps {
 export default function EscapeButton({ text }: EscapeButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [transform, setTransform] = useState<string>("");
+  const reducedMotionRef = useRef<boolean>(false);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    reducedMotionRef.current = mq.matches;
+    const onChange = (e: MediaQueryListEvent) => {
+      reducedMotionRef.current = e.matches;
+      if (e.matches) setTransform("");
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reducedMotionRef.current) return;
+
     const btn = buttonRef.current;
     if (!btn) return;
 
@@ -38,24 +51,18 @@ export default function EscapeButton({ text }: EscapeButtonProps) {
       timeoutRef.current = setTimeout(() => setTransform(""), RESET_DELAY);
     }
   };
+
   return (
-    <div className="" onMouseMove={handleMouseMove}>
+    <div onMouseMove={handleMouseMove}>
       <button
         ref={buttonRef}
-        className="relative bg-button text-button-text font-bold px-4 py-2 rounded transition-transform duration-200"
-        style={{ transform }}
+        className="btn btn--ghost btn--sm"
+        style={{
+          transform,
+          transition: "transform 120ms ease-out, opacity 80ms ease-out",
+        }}
       >
-        {text === "" ? (
-          <Image
-            width={40}
-            height={32}
-            src="/thumbs-down.svg"
-            alt="Escape Button"
-            className="w-10 h-8 -scale-x-100"
-          />
-        ) : (
-          text
-        )}
+        {text === "" ? "no" : text}
       </button>
     </div>
   );

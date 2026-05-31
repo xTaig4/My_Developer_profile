@@ -14,17 +14,42 @@ const SkillsBox = () => {
     { name: "Tailwind CSS", rating: 5 },
   ];
   return (
-    <div className="p-4" style={{ fontFamily: "pixelFont" }}>
-      <h1 className="text-text mb-5 text-2xl font-bold">Skills</h1>
-      <div className="text-text grid max-w-5xl grid-cols-2 gap-x-30 gap-y-4">
+    <div className="font-mono" style={{ padding: "var(--space-md)" }}>
+      <div className="marker font-display" style={{ marginBottom: "var(--space-lg)" }}>
+        skills
+      </div>
+      <div
+        className="grid max-w-3xl grid-cols-1 md:grid-cols-2"
+        style={{ columnGap: "var(--space-xl)", rowGap: "var(--space-sm)" }}
+      >
         {skills.map((skill) => (
-          <li className="flex items-center text-2xl" key={skill.name}>
-            <span className="w-50">{skill.name}</span>
-            <span>
-              {"★".repeat(skill.rating)}
-              {"☆".repeat(5 - skill.rating)}
+          <div
+            className="flex items-center"
+            key={skill.name}
+            style={{ gap: "var(--space-md)" }}
+          >
+            <span
+              className="text-ink"
+              style={{
+                fontSize: "var(--type-sm)",
+                width: "8rem",
+                flexShrink: 0,
+              }}
+            >
+              {skill.name}
             </span>
-          </li>
+            <div
+              className="progress"
+              style={{ ["--value" as string]: (skill.rating / 5) * 100 }}
+              aria-label={`${skill.name} ${skill.rating} of 5`}
+            />
+            <span
+              className="text-ink-muted"
+              style={{ fontSize: "var(--type-2xs)", flexShrink: 0 }}
+            >
+              {skill.rating}/5
+            </span>
+          </div>
         ))}
       </div>
     </div>
