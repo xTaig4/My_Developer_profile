@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { courier, departure } from "./fonts";
-import Sidebar from "./components/Sidebar";
+import TopBar from "./components/TopBar";
 import ThemeToggle from "./components/ThemeToggle";
 
 export const metadata: Metadata = {
@@ -28,11 +28,9 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        {/* side navigation bar*/}
-        <Sidebar />
+        <TopBar />
         {children}
         <ThemeToggle />
-        <nav></nav>
       </body>
     </html>
   );

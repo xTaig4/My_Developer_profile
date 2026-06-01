@@ -9,7 +9,7 @@ const ContactPage = () => {
 
   return (
     <main
-      className="flex min-h-screen flex-col bg-app text-ink ml-29"
+      className="flex min-h-[calc(100lvh-3rem)] flex-col bg-app text-ink"
       style={{ padding: "var(--space-xl)", gap: "var(--space-lg)" }}
     >
       <div className="marker font-display">contact</div>

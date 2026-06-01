@@ -56,9 +56,9 @@ const ProfilePage = () => {
   ];
 
   return (
-    <main className="min-h-lvh bg-app p-[var(--space-md)] font-mono text-ink sm:p-[var(--space-lg)] lg:p-[var(--space-xl)]">
+    <main className="min-h-[calc(100lvh-3rem)] bg-app p-[var(--space-md)] font-mono text-ink sm:p-[var(--space-lg)] lg:p-[var(--space-xl)]">
       <div
-        className="flex flex-col 2xl:ml-40"
+        className="mx-auto flex w-full flex-col"
         style={{ gap: "var(--space-2xl)", maxWidth: "72rem" }}
       >
         <ProfileHeader

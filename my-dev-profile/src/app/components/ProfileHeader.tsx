@@ -64,6 +64,45 @@ const ProfileHeader = ({
             </span>
           </div>
 
+          {/* reach — direct contact, available on every viewport */}
+          <div
+            className="flex flex-wrap items-center"
+            style={{ gap: "var(--space-xs) var(--space-sm)" }}
+          >
+            <span className="tag">reach</span>
+            <a
+              href="mailto:hidden@example.com"
+              className="text-ink-muted transition-opacity duration-[80ms] hover:text-ink"
+              style={{ fontSize: "var(--type-sm)" }}
+            >
+              email
+            </a>
+            <span className="text-ink-faint" aria-hidden="true">
+              ·
+            </span>
+            <a
+              href="https://www.linkedin.com/in/tai-nguyen-452753235/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-muted transition-opacity duration-[80ms] hover:text-ink"
+              style={{ fontSize: "var(--type-sm)" }}
+            >
+              LinkedIn
+            </a>
+            <span className="text-ink-faint" aria-hidden="true">
+              ·
+            </span>
+            <a
+              href="https://github.com/xTaig4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-muted transition-opacity duration-[80ms] hover:text-ink"
+              style={{ fontSize: "var(--type-sm)" }}
+            >
+              GitHub
+            </a>
+          </div>
+
           {/* one-liner — the hook */}
           <p
             className="text-ink"
