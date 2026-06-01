@@ -11,9 +11,9 @@ import TraitsBox from "@/app/components/BoxComponents/TraitsBox";
 const ProfilePage = () => {
   const stats = [
     { stat: "AI Engineering", fillPercent: 88 },
-    { stat: "Coding Strength", fillPercent: 90 },
-    { stat: "Coding Speed", fillPercent: 75 },
-    { stat: "Debugging Skills", fillPercent: 83 },
+    { stat: "Software Architecture", fillPercent: 90 },
+    { stat: "Frontend", fillPercent: 75 },
+    { stat: "Backend", fillPercent: 83 },
     { stat: "Charisma", fillPercent: 66 },
     { stat: "Braincells", fillPercent: 10 },
   ];
