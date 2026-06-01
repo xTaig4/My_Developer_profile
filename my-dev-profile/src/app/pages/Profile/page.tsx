@@ -8,12 +8,40 @@ import SkillsBox from "@/app/components/BoxComponents/SkillsBox";
 import HobbiesBox from "@/app/components/BoxComponents/HobbiesBox";
 import TraitsBox from "@/app/components/BoxComponents/TraitsBox";
 
+const StatBar = ({ stat, fillPercent }: { stat: string; fillPercent: number }) => (
+  <div className="flex flex-col" style={{ gap: "var(--space-xs)" }}>
+    <div
+      className="flex items-baseline justify-between"
+      style={{ gap: "var(--space-md)" }}
+    >
+      <span className="text-ink" style={{ fontSize: "var(--type-sm)" }}>
+        {stat}
+      </span>
+      <span
+        className="text-ink-muted tabular-nums"
+        style={{ fontSize: "var(--type-2xs)" }}
+      >
+        {fillPercent} / 100
+      </span>
+    </div>
+    <div
+      className="progress"
+      style={{ "--value": fillPercent } as React.CSSProperties}
+      aria-label={`${stat}: ${fillPercent} of 100`}
+    />
+  </div>
+);
+
 const ProfilePage = () => {
-  const stats = [
+  // core = genuine self-assessed skill axes; flavor = personality, read as a gag
+  const coreStats = [
     { stat: "AI Engineering", fillPercent: 88 },
     { stat: "Software Architecture", fillPercent: 90 },
     { stat: "Frontend", fillPercent: 75 },
     { stat: "Backend", fillPercent: 83 },
+  ];
+
+  const flavorStats = [
     { stat: "Charisma", fillPercent: 66 },
     { stat: "Braincells", fillPercent: 10 },
   ];
@@ -84,33 +112,23 @@ const ProfilePage = () => {
           <aside className="flex flex-col" style={{ gap: "var(--space-xl)" }}>
             <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
               <div className="marker font-display">stats</div>
-              <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
-                {stats.map(({ stat, fillPercent }, i) => (
-                  <div key={stat} className="flex flex-col" style={{ gap: "var(--space-xs)" }}>
-                    <div
-                      className="flex items-baseline justify-between"
-                      style={{ gap: "var(--space-md)" }}
-                    >
-                      <span className="text-ink" style={{ fontSize: "var(--type-sm)" }}>
-                        <span className="text-ink-muted tabular-nums">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>{" "}
-                        {stat}
-                      </span>
-                      <span
-                        className="text-ink-muted tabular-nums"
-                        style={{ fontSize: "var(--type-2xs)" }}
-                      >
-                        {fillPercent} / 100
-                      </span>
-                    </div>
-                    <div
-                      className="progress"
-                      style={{ "--value": fillPercent } as React.CSSProperties}
-                      aria-label={`${stat}: ${fillPercent} of 100`}
-                    />
+              <div className="flex flex-col" style={{ gap: "var(--space-lg)" }}>
+                <div className="flex flex-col" style={{ gap: "var(--space-sm)" }}>
+                  <span className="tag">core</span>
+                  <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+                    {coreStats.map((s) => (
+                      <StatBar key={s.stat} {...s} />
+                    ))}
                   </div>
-                ))}
+                </div>
+                <div className="flex flex-col" style={{ gap: "var(--space-sm)" }}>
+                  <span className="tag">flavor</span>
+                  <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+                    {flavorStats.map((s) => (
+                      <StatBar key={s.stat} {...s} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
 
