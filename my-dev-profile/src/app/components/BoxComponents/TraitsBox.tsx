@@ -32,7 +32,7 @@ const TraitsBox = ({ traits }: TraitsBoxProps) => {
                 paddingBottom: "var(--space-3xs)",
               }}
             >
-              <span className="text-accent select-none" aria-hidden="true">
+              <span className="text-ink-faint select-none" aria-hidden="true">
                 &gt;
               </span>
               <span>{trait}</span>

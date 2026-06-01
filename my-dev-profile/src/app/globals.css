@@ -93,6 +93,7 @@
   --type-md: 1rem; /* 16px — section headings           */
   --type-lg: 1.25rem; /* 20px — page title                 */
   --type-xl: 1.75rem; /* 28px — wordmark / hero number      */
+  --type-2xl: 2.5rem; /* 40px — character name (one hero)   */
 
   /* fonts — self-hosted via next/font/local (src/app/fonts.ts).
      --font-courier / --font-departure are injected on <html>; the rest of
@@ -158,6 +159,7 @@ body {
   *::after {
     transition-duration: 0ms !important;
     animation-duration: 0ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
   }
 }
@@ -394,6 +396,35 @@ body {
   border: 1px solid var(--border);
   border-radius: 2px;
   padding: var(--space-md);
+}
+
+/* interactive panel link — states declared here (unlayered) so they win over
+   the .panel--inset base shorthands; Tailwind utilities live in @layer and
+   would otherwise lose the cascade regardless of specificity. */
+.link-panel {
+  cursor: pointer;
+}
+.link-panel:hover {
+  background: var(--bg-surface-2);
+}
+.link-panel:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* .chip — bordered token for skill / language lists */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: var(--space-3xs) var(--space-sm);
+  white-space: nowrap;
 }
 
 /* .pill — UPPERCASE status pill, under-rule (not filled) */

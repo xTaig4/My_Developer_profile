@@ -1,13 +1,16 @@
 "use client";
 
+import React from "react";
+import ProfileHeader from "@/app/components/ProfileHeader";
+import ExperienceList from "@/app/components/ExperienceList";
 import ProjectList from "@/app/components/ProjectList";
+import SkillsBox from "@/app/components/BoxComponents/SkillsBox";
 import HobbiesBox from "@/app/components/BoxComponents/HobbiesBox";
 import TraitsBox from "@/app/components/BoxComponents/TraitsBox";
-import DisplayBox from "@/app/components/BoxComponents/DisplayBox";
-import ProfileImageBox from "@/app/components/BoxComponents/ProfileImageBox";
 
 const ProfilePage = () => {
   const stats = [
+    { stat: "AI Engineering", fillPercent: 88 },
     { stat: "Coding Strength", fillPercent: 90 },
     { stat: "Coding Speed", fillPercent: 75 },
     { stat: "Debugging Skills", fillPercent: 83 },
@@ -32,49 +35,70 @@ const ProfilePage = () => {
     { hobby: "Doodle" },
   ];
 
+  const education = [
+    {
+      degree: "Software Developer (PBA)",
+      school: "Erhvervsakademi Dania, Grenaa",
+      dates: "Jan 2023 – Jun 2024",
+    },
+    {
+      degree: "Datamatiker (AP, Computer Science)",
+      school: "Erhvervsakademi Dania, Grenaa",
+      dates: "Sep 2020 – Jan 2023",
+    },
+  ];
+
+  const languages = [
+    { lang: "Danish", level: "native" },
+    { lang: "English", level: "fluent" },
+    { lang: "Vietnamese", level: "intermediate" },
+    { lang: "Japanese", level: "intermediate" },
+  ];
+
   return (
-    <div
-      className="min-h-lvh bg-app font-mono text-ink"
-      style={{ padding: "var(--space-xl)" }}
-    >
+    <main className="min-h-lvh bg-app p-[var(--space-md)] font-mono text-ink sm:p-[var(--space-lg)] lg:p-[var(--space-xl)]">
       <div
         className="flex flex-col 2xl:ml-40"
         style={{ gap: "var(--space-2xl)", maxWidth: "72rem" }}
       >
-        {/* TOP: Stats / Traits / Hobbies + Profile image */}
-        <div
-          className="flex flex-col lg:flex-row"
-          style={{ gap: "var(--space-2xl)" }}
-        >
-          {/* LEFT COLUMN: Stats + Traits + Hobbies */}
-          <div
-            className="flex flex-1 flex-col"
-            style={{ gap: "var(--space-2xl)" }}
-          >
+        <ProfileHeader
+          name="Tai Nguyen"
+          classLine="full-stack developer, AI-focused"
+          location="Aalborg, Denmark"
+          status="open to offers"
+          oneLiner="Full-stack developer building AI products that create real value for non-technical users."
+          record="Trained full-stack software developer with hands-on experience shipping AI solutions for non-technical users. Co-developed Kvik, a Danish AI bookkeeping assistant, and builds LLM pipelines with a focus on reliability, GDPR, and usability, pairing technical depth with product sense."
+          stack={["Claude API", "React", "Next.js", "C#", "Rust"]}
+        />
+
+        {/* BODY: main column (substance) + side rail (flavor + credentials) */}
+        <div className="grid grid-cols-1 gap-[var(--space-2xl)] lg:grid-cols-[minmax(0,1fr)_19rem]">
+          {/* MAIN — abilities, experience, projects */}
+          <div className="flex min-w-0 flex-col" style={{ gap: "var(--space-2xl)" }}>
+            <SkillsBox />
+            <ExperienceList />
+            <ProjectList />
+          </div>
+
+          {/* RAIL — stats, education, languages, traits, hobbies */}
+          <aside className="flex flex-col" style={{ gap: "var(--space-xl)" }}>
             <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
-              <div className="marker">stats</div>
+              <div className="marker font-display">stats</div>
               <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
                 {stats.map(({ stat, fillPercent }, i) => (
-                  <div
-                    key={stat}
-                    className="flex flex-col"
-                    style={{ gap: "var(--space-xs)" }}
-                  >
+                  <div key={stat} className="flex flex-col" style={{ gap: "var(--space-xs)" }}>
                     <div
                       className="flex items-baseline justify-between"
                       style={{ gap: "var(--space-md)" }}
                     >
-                      <span
-                        className="text-ink"
-                        style={{ fontSize: "var(--type-sm)" }}
-                      >
-                        <span className="text-ink-faint">
+                      <span className="text-ink" style={{ fontSize: "var(--type-sm)" }}>
+                        <span className="text-ink-muted tabular-nums">
                           {String(i + 1).padStart(2, "0")}
                         </span>{" "}
                         {stat}
                       </span>
                       <span
-                        className="text-ink-muted"
+                        className="text-ink-muted tabular-nums"
                         style={{ fontSize: "var(--type-2xs)" }}
                       >
                         {fillPercent} / 100
@@ -83,35 +107,55 @@ const ProfilePage = () => {
                     <div
                       className="progress"
                       style={{ "--value": fillPercent } as React.CSSProperties}
+                      aria-label={`${stat}: ${fillPercent} of 100`}
                     />
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Traits + Hobbies */}
-            <div
-              className="flex flex-col sm:flex-row"
-              style={{ gap: "var(--space-2xl)" }}
-            >
-              <TraitsBox traits={traits} />
-              <HobbiesBox hobbies={hobbies} />
-            </div>
-          </div>
+            <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+              <div className="marker font-display">education</div>
+              <ul className="flex list-none flex-col" style={{ gap: "var(--space-md)" }}>
+                {education.map((e) => (
+                  <li key={e.degree} className="flex flex-col" style={{ gap: "var(--space-3xs)" }}>
+                    <span className="text-ink" style={{ fontSize: "var(--type-sm)" }}>
+                      {e.degree}
+                    </span>
+                    <span className="text-ink-muted" style={{ fontSize: "var(--type-2xs)" }}>
+                      {e.school}
+                    </span>
+                    <span
+                      className="text-ink-muted tabular-nums"
+                      style={{ fontSize: "var(--type-2xs)" }}
+                    >
+                      {e.dates}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-          {/* RIGHT: Profile Image */}
-          <div className="flex-shrink-0">
-            <ProfileImageBox />
-          </div>
-        </div>
+            <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+              <div className="marker font-display">languages</div>
+              <ul className="flex list-none flex-wrap" style={{ gap: "var(--space-xs)" }}>
+                {languages.map((l) => (
+                  <li key={l.lang} className="chip">
+                    {l.lang}
+                    <span className="text-ink-muted" style={{ marginLeft: "var(--space-xs)" }}>
+                      {l.level}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-        {/* BOTTOM: Display + Projects */}
-        <div className="flex flex-col" style={{ gap: "var(--space-2xl)" }}>
-          <DisplayBox />
-          <ProjectList />
+            <TraitsBox traits={traits} />
+            <HobbiesBox hobbies={hobbies} />
+          </aside>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

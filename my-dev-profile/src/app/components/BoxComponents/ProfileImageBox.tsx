@@ -17,7 +17,7 @@ const ProfileImageBox = () => {
 
   return (
     <div
-      className="panel flex w-90 flex-col"
+      className="panel flex w-full max-w-90 flex-col lg:w-90"
       style={{ padding: "var(--space-sm)", gap: "var(--space-sm)" }}
     >
       <div className="marker font-display">avatar</div>

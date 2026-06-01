@@ -2,57 +2,87 @@
 
 import React from "react";
 
+interface SkillGroup {
+  label: string;
+  skills: string[];
+}
+
+const GROUPS: SkillGroup[] = [
+  {
+    label: "ai & automation",
+    skills: [
+      "Claude API",
+      "Prompt Engineering",
+      "AI Agents",
+      "LLM Integration",
+      "ElevenLabs",
+      "Mistral",
+      "Claude Code",
+    ],
+  },
+  {
+    label: "frontend",
+    skills: ["TypeScript", "React", "Next.js", "React Native", "Tailwind", "HTML / CSS"],
+  },
+  {
+    label: "backend & infra",
+    skills: [
+      "C#",
+      "ASP.NET",
+      "Node.js",
+      "Rust",
+      "Inngest",
+      "Supabase",
+      "SQL / SQLite",
+      "Docker",
+      "Vercel",
+    ],
+  },
+  {
+    label: "integrations & quality",
+    skills: [
+      "Twilio",
+      "Stripe",
+      "Clerk",
+      "OAuth 2.0 / PKCE",
+      "HMAC",
+      "Zod",
+      "Vitest",
+      "Playwright",
+    ],
+  },
+];
+
 const SkillsBox = () => {
-  const skills = [
-    { name: "C#", rating: 5 },
-    { name: "ASP.NET", rating: 4 },
-    { name: "Docker", rating: 3 },
-    { name: "TypeScript", rating: 4 },
-    { name: "HTML, CSS", rating: 5 },
-    { name: "React", rating: 5 },
-    { name: "Next.js", rating: 4 },
-    { name: "Tailwind CSS", rating: 5 },
-  ];
   return (
-    <div className="font-mono" style={{ padding: "var(--space-md)" }}>
-      <div className="marker font-display" style={{ marginBottom: "var(--space-lg)" }}>
-        skills
-      </div>
+    <section className="font-mono text-ink">
+      <div className="marker font-display">abilities</div>
+
       <div
-        className="grid max-w-3xl grid-cols-1 md:grid-cols-2"
-        style={{ columnGap: "var(--space-xl)", rowGap: "var(--space-sm)" }}
+        className="flex flex-col"
+        style={{ marginTop: "var(--space-md)", gap: "var(--space-lg)" }}
       >
-        {skills.map((skill) => (
+        {GROUPS.map((group) => (
           <div
-            className="flex items-center"
-            key={skill.name}
-            style={{ gap: "var(--space-md)" }}
+            key={group.label}
+            className="flex flex-col"
+            style={{ gap: "var(--space-sm)" }}
           >
-            <span
-              className="text-ink"
-              style={{
-                fontSize: "var(--type-sm)",
-                width: "8rem",
-                flexShrink: 0,
-              }}
+            <span className="tag">{group.label}</span>
+            <ul
+              className="flex list-none flex-wrap"
+              style={{ gap: "var(--space-xs)" }}
             >
-              {skill.name}
-            </span>
-            <div
-              className="progress"
-              style={{ ["--value" as string]: (skill.rating / 5) * 100 }}
-              aria-label={`${skill.name} ${skill.rating} of 5`}
-            />
-            <span
-              className="text-ink-muted"
-              style={{ fontSize: "var(--type-2xs)", flexShrink: 0 }}
-            >
-              {skill.rating}/5
-            </span>
+              {group.skills.map((skill) => (
+                <li key={skill} className="chip">
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
