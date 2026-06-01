@@ -7,7 +7,6 @@ interface ProfileHeaderProps {
   status: string;
   oneLiner: string;
   record: string;
-  stack: string[];
 }
 
 const ProfileHeader = ({
@@ -17,7 +16,6 @@ const ProfileHeader = ({
   status,
   oneLiner,
   record,
-  stack,
 }: ProfileHeaderProps) => {
   return (
     <header className="flex flex-col" style={{ gap: "var(--space-lg)" }}>
@@ -71,16 +69,6 @@ const ProfileHeader = ({
           >
             <span className="tag">reach</span>
             <a
-              href="mailto:hidden@example.com"
-              className="text-ink-muted transition-opacity duration-[80ms] hover:text-ink"
-              style={{ fontSize: "var(--type-sm)" }}
-            >
-              email
-            </a>
-            <span className="text-ink-faint" aria-hidden="true">
-              ·
-            </span>
-            <a
               href="https://www.linkedin.com/in/tai-nguyen-452753235/"
               target="_blank"
               rel="noopener noreferrer"
@@ -115,23 +103,6 @@ const ProfileHeader = ({
           >
             {oneLiner}
           </p>
-
-          {/* stack chip row */}
-          <div
-            className="flex flex-wrap items-center"
-            style={{ gap: "var(--space-xs) var(--space-sm)" }}
-          >
-            <span className="tag">stack</span>
-            {stack.map((s) => (
-              <span
-                key={s}
-                className="text-ink-muted"
-                style={{ fontSize: "var(--type-xs)" }}
-              >
-                {s}
-              </span>
-            ))}
-          </div>
 
           {/* record — expanded context */}
           <p

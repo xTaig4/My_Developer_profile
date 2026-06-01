@@ -96,7 +96,6 @@ const ProfilePage = () => {
           status="open to offers"
           oneLiner="Full-stack developer building AI products that create real value for non-technical users."
           record="Trained full-stack software developer with hands-on experience shipping AI solutions for non-technical users. Co-developed Kvik, a Danish AI bookkeeping assistant, and builds LLM pipelines with a focus on reliability, GDPR, and usability, pairing technical depth with product sense."
-          stack={["Claude API", "React", "Next.js", "C#", "Rust"]}
         />
 
         {/* BODY: main column (substance) + side rail (flavor + credentials) */}

@@ -36,7 +36,7 @@ const ProfileImageBox = () => {
             height={480}
             src={`/${filters[filterIndex]}`}
             alt="current overlay"
-            className="absolute inset-0 z-0 w-90 object-cover"
+            className="absolute inset-0 z-0 w-full object-cover"
           />
         )}
       </div>

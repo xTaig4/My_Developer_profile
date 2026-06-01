@@ -47,9 +47,12 @@ export default function ThemeToggle() {
             className={
               theme === t.id
                 ? "text-accent"
-                : "text-ink-muted hover:text-ink transition-opacity duration-[80ms]"
+                : "text-ink-muted transition-opacity duration-[80ms] hover:text-ink"
             }
-            style={{ letterSpacing: "0.08em" }}
+            style={{
+              letterSpacing: "0.08em",
+              padding: "var(--space-xs) var(--space-3xs)",
+            }}
           >
             {t.label}
           </button>

@@ -55,19 +55,6 @@ const TopBar = () => {
             contact
           </Link>
 
-          <a
-            href="mailto:hidden@example.com"
-            className="hidden items-center font-mono uppercase text-ink-muted transition-opacity duration-[80ms] hover:text-ink sm:flex"
-            style={{
-              fontSize: "var(--type-xs)",
-              letterSpacing: "0.08em",
-              minHeight: "44px",
-              padding: "0 var(--space-xs)",
-            }}
-          >
-            email
-          </a>
-
           <span
             aria-hidden="true"
             className="text-ink-faint"
