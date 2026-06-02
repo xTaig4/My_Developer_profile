@@ -33,17 +33,12 @@ const StatBar = ({ stat, fillPercent }: { stat: string; fillPercent: number }) =
 );
 
 const ProfilePage = () => {
-  // core = genuine self-assessed skill axes; flavor = personality, read as a gag
-  const coreStats = [
+  const stats = [
     { stat: "AI Engineering", fillPercent: 88 },
     { stat: "Software Architecture", fillPercent: 90 },
     { stat: "Frontend", fillPercent: 75 },
     { stat: "Backend", fillPercent: 83 },
-  ];
-
-  const flavorStats = [
-    { stat: "Charisma", fillPercent: 66 },
-    { stat: "Braincells", fillPercent: 10 },
+    { stat: "Cybersecurity", fillPercent: 25 },
   ];
 
   const traits = [
@@ -52,12 +47,12 @@ const ProfilePage = () => {
     { trait: "Team player" },
     { trait: "Weirdo" },
     { trait: "Certified nerd" },
-    { trait: "Naruto fanboi" },
+    { trait: "Patient" },
   ];
 
   const hobbies = [
     { hobby: "Gaming" },
-    { hobby: "Coding" },
+    { hobby: "Volleyball" },
     { hobby: "Reading" },
     { hobby: "Pour-over Coffee" },
     { hobby: "Doodle" },
@@ -98,7 +93,7 @@ const ProfilePage = () => {
           record="Trained full-stack software developer with hands-on experience shipping AI solutions for non-technical users. Co-developed Kvik, a Danish AI bookkeeping assistant, and builds LLM pipelines with a focus on reliability, GDPR, and usability, pairing technical depth with product sense."
         />
 
-        {/* BODY: main column (substance) + side rail (flavor + credentials) */}
+        {/* BODY: main column (substance) + side rail (stats + credentials) */}
         <div className="grid grid-cols-1 gap-[var(--space-2xl)] lg:grid-cols-[minmax(0,1fr)_19rem]">
           {/* MAIN — abilities, experience, projects */}
           <div className="flex min-w-0 flex-col" style={{ gap: "var(--space-2xl)" }}>
@@ -107,27 +102,14 @@ const ProfilePage = () => {
             <ProjectList />
           </div>
 
-          {/* RAIL — stats, education, languages, traits, hobbies */}
+          {/* RAIL — stats, education, traits, hobbies, languages */}
           <aside className="flex flex-col" style={{ gap: "var(--space-xl)" }}>
             <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
               <div className="marker font-display">stats</div>
-              <div className="flex flex-col" style={{ gap: "var(--space-lg)" }}>
-                <div className="flex flex-col" style={{ gap: "var(--space-sm)" }}>
-                  <span className="tag">core</span>
-                  <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
-                    {coreStats.map((s) => (
-                      <StatBar key={s.stat} {...s} />
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-col" style={{ gap: "var(--space-sm)" }}>
-                  <span className="tag">flavor</span>
-                  <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
-                    {flavorStats.map((s) => (
-                      <StatBar key={s.stat} {...s} />
-                    ))}
-                  </div>
-                </div>
+              <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+                {stats.map((s) => (
+                  <StatBar key={s.stat} {...s} />
+                ))}
               </div>
             </section>
 
@@ -153,6 +135,9 @@ const ProfilePage = () => {
               </ul>
             </section>
 
+            <TraitsBox traits={traits} />
+            <HobbiesBox hobbies={hobbies} />
+
             <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
               <div className="marker font-display">languages</div>
               <ul className="flex list-none flex-wrap" style={{ gap: "var(--space-xs)" }}>
@@ -166,9 +151,6 @@ const ProfilePage = () => {
                 ))}
               </ul>
             </section>
-
-            <TraitsBox traits={traits} />
-            <HobbiesBox hobbies={hobbies} />
           </aside>
         </div>
       </div>
