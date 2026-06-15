@@ -2,15 +2,11 @@ import Image from "next/image";
 import { useState } from "react";
 import ArrowButton from "../ArrowButtons";
 
+const filters: string[] = ["", "beard1.png", "master.png", "sunglass_cigar.png"];
+const overlayNames: string[] = ["none", "beard", "master", "sunglass"];
+
 const ProfileImageBox = () => {
   const [filterIndex, setFilterIndex] = useState(0);
-  const filters: string[] = [
-    "",
-    "beard1.png",
-    "master.png",
-    "sunglass_cigar.png",
-  ];
-  const overlayNames: string[] = ["none", "beard", "master", "sunglass"];
 
   const index = String(filterIndex + 1).padStart(2, "0");
   const total = String(filters.length).padStart(2, "0");
@@ -65,8 +61,8 @@ const ProfileImageBox = () => {
         </div>
 
         <ArrowButton
-          classNameLeft="btn btn--ghost btn--icon btn--sm"
-          classNameRight="btn btn--ghost btn--icon btn--sm"
+          classNameLeft="btn btn--icon"
+          classNameRight="btn btn--icon"
           collection={filters}
           currentIndex={filterIndex}
           onIndexChange={setFilterIndex}

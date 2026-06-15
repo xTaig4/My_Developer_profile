@@ -10,12 +10,13 @@ interface Role {
 const ROLES: Role[] = [
   {
     company: "Kvik.pro",
-    role: "Intern & co-developer",
-    dates: "Mar – Apr 2026",
+    role: "Intern, now acting CTO & AI developer",
+    dates: "Mar 2026 – present",
     bullets: [
-      "Co-developed Kvik, a Danish AI bookkeeping assistant where tradespeople manage their accounting by voice call and SMS, from the ElevenLabs voice agent through to the Dinero accounting API integration.",
-      "Built a human-in-the-loop SMS confirmation so the AI never takes an irreversible action without explicit user consent; worked on multi-tenant security (token encryption, OAuth / PKCE).",
-      "Built durable customer workflows in Inngest with Stripe payment automation; used the Claude API, prompt engineering, and Claude Code in the daily workflow.",
+      "Co-developed Kvik, a Danish AI bookkeeping assistant that lets tradespeople, including people with dyslexia, manage their accounting just by speaking or texting, from the ElevenLabs voice agent through to the Dinero accounting API integration.",
+      "Took shared responsibility for the full infrastructure and now lead the technical direction as the team's acting CTO.",
+      "Built a human-in-the-loop SMS confirmation so the AI never takes an irreversible action without explicit user consent, and worked on multi-tenant security (token encryption, OAuth / PKCE).",
+      "Built durable customer workflows in Inngest with Stripe payment automation, using the Claude API, prompt engineering, and Claude Code daily.",
     ],
   },
   {

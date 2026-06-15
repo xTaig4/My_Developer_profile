@@ -5,6 +5,7 @@ interface ProfileHeaderProps {
   classLine: string;
   location: string;
   status: string;
+  drive?: string;
   oneLiner: string;
   record: string;
 }
@@ -14,6 +15,7 @@ const ProfileHeader = ({
   classLine,
   location,
   status,
+  drive,
   oneLiner,
   record,
 }: ProfileHeaderProps) => {
@@ -97,20 +99,37 @@ const ProfileHeader = ({
             style={{
               fontSize: "var(--type-md)",
               lineHeight: 1.45,
-              maxWidth: "60ch",
+              maxWidth: "68ch",
               textWrap: "pretty",
             }}
           >
             {oneLiner}
           </p>
 
+          {/* drive — what guides the work, set off as an accent pull-quote */}
+          {drive && (
+            <p
+              className="text-ink"
+              style={{
+                fontSize: "var(--type-md)",
+                lineHeight: 1.5,
+                maxWidth: "66ch",
+                textWrap: "pretty",
+                borderLeft: "2px solid var(--accent)",
+                paddingLeft: "var(--space-md)",
+              }}
+            >
+              {drive}
+            </p>
+          )}
+
           {/* record — expanded context */}
           <p
             className="text-ink-muted"
             style={{
-              fontSize: "var(--type-sm)",
+              fontSize: "var(--type-md)",
               lineHeight: 1.6,
-              maxWidth: "64ch",
+              maxWidth: "74ch",
               textWrap: "pretty",
             }}
           >
@@ -118,8 +137,8 @@ const ProfileHeader = ({
           </p>
         </div>
 
-        {/* AVATAR */}
-        <div className="flex-shrink-0">
+        {/* AVATAR — centered above the bio on mobile (one column), right side on lg */}
+        <div className="order-first flex flex-shrink-0 justify-center lg:order-none lg:block">
           <ProfileImageBox />
         </div>
       </div>

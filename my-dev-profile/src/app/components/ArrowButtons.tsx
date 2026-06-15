@@ -31,7 +31,7 @@ const ArrowButtons = ({
         type="button"
         onClick={handleLeftArrow}
         aria-label="Previous"
-        className={`btn btn--ghost btn--icon z-1 hover:bg-surface-2 ${classNameLeft ?? ""}`}
+        className={`btn btn--icon z-1 ${classNameLeft ?? ""}`}
       >
         {"<"}
       </button>
@@ -39,7 +39,7 @@ const ArrowButtons = ({
         type="button"
         onClick={handleRightArrow}
         aria-label="Next"
-        className={`btn btn--ghost btn--icon z-1 hover:bg-surface-2 ${classNameRight ?? ""}`}
+        className={`btn btn--icon z-1 ${classNameRight ?? ""}`}
       >
         {">"}
       </button>

@@ -23,6 +23,7 @@ const ContactPage = () => {
 
       <div className="flex flex-row items-center" style={{ gap: "var(--space-md)" }}>
         <button
+          type="button"
           className="btn btn--accent btn--sm"
           aria-pressed={showCard}
           onClick={() => setShowCard(!showCard)}

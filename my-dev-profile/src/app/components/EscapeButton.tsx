@@ -55,6 +55,7 @@ export default function EscapeButton({ text }: EscapeButtonProps) {
   return (
     <div onMouseMove={handleMouseMove}>
       <button
+        type="button"
         ref={buttonRef}
         className="btn btn--ghost btn--sm"
         style={{

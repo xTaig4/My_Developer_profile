@@ -7,6 +7,7 @@ interface Project {
   name: string;
   description: string;
   stack: string[];
+  tier: "lead" | "secondary";
   image?: string;
   link?: string;
 }
@@ -15,32 +16,26 @@ const projects: Project[] = [
   {
     name: "HolidayTracker",
     description:
-      "An LLM pipeline that turns Danish holiday emails into calendar events with no manual entry. Schema-bound (JSON Schema) output is validated before it is trusted; Mistral chosen for EU data residency (GDPR), with raw emails kept for an audit trail and HMAC-verified webhooks.",
-    stack: ["Mistral", "JSON Schema", "HMAC", "GDPR"],
+      "An LLM pipeline that turns unstructured Danish emails into validated calendar events with no manual entry. Built as a prototype for a small barbershop, who adopted it into their own system the next day. Schema-bound (JSON Schema) output is validated before it is trusted, and a European provider (Mistral) was chosen so personal data was processed within the EU, with raw emails kept for an audit trail and HMAC-verified webhooks.",
+    stack: ["Mistral", "JSON Schema", "HMAC", "EU data"],
+    tier: "lead",
   },
   {
     name: "Riftbound Tracker",
     description:
       "A cross-platform desktop app built solo end-to-end (~8k lines): native Rust commands, versioned SQLite migrations, and a self-designed design system. Offline-first with atomic writes and fault isolation; 10 documented architecture decisions (ADRs).",
     stack: ["Tauri 2", "Rust", "React 19", "SQLite"],
-  },
-  {
-    name: "My Developer Profile",
-    description:
-      "An earlier profile website showcasing my skills, projects, and contact information.",
-    image:
-      "https://raw.githubusercontent.com/xTaig4/BlueSky-Profile-project/refs/heads/main/public/screenshots/demo_shot.JPG",
-    link: "https://blue-sky-profile-project.vercel.app",
-    stack: ["Next.js", "React", "TypeScript", "Tailwind"],
+    tier: "lead",
   },
   {
     name: "Kanji Tales",
     description:
-      "A web app where users add the kanji they have learned, then generate short stories or sentences from them.",
+      "A web app where users add the kanji they have learned, then an LLM generates short stories and sentences from them to reinforce reading in context.",
     image:
       "https://raw.githubusercontent.com/xTaig4/KanjiTales/refs/heads/main/kanji_tales/public/KanjiTales.JPG",
     link: "https://github.com/xTaig4/KanjiTales",
     stack: ["React", "Next.js", "LLM API"],
+    tier: "lead",
   },
   {
     name: "Weeb Words",
@@ -50,6 +45,7 @@ const projects: Project[] = [
       "https://raw.githubusercontent.com/xTaig4/WeebWords_v2/refs/heads/main/weeb-words/Screenshots/QuoteWeb.JPG",
     link: "https://github.com/xTaig4/WeebWords_v2",
     stack: ["React", "REST API"],
+    tier: "secondary",
   },
   {
     name: "QuotesAPI",
@@ -59,6 +55,7 @@ const projects: Project[] = [
       "https://raw.githubusercontent.com/xTaig4/QuotesAPI/refs/heads/main/image_2025-09-30_160812512.png",
     link: "https://github.com/xTaig4/QuotesAPI",
     stack: ["ASP.NET", "C#", "REST"],
+    tier: "secondary",
   },
   {
     name: "Runaway",
@@ -68,6 +65,17 @@ const projects: Project[] = [
       "https://raw.githubusercontent.com/xTaig4/Runaway/refs/heads/main/Assets/Screenshots/RunawayGame.JPG",
     link: "https://github.com/xTaig4/Runaway",
     stack: ["Unity", "C#"],
+    tier: "secondary",
+  },
+  {
+    name: "My Developer Profile",
+    description:
+      "An earlier profile website showcasing my skills, projects, and contact information.",
+    image:
+      "https://raw.githubusercontent.com/xTaig4/BlueSky-Profile-project/refs/heads/main/public/screenshots/demo_shot.JPG",
+    link: "https://blue-sky-profile-project.vercel.app",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind"],
+    tier: "secondary",
   },
 ];
 
@@ -219,18 +227,45 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const ProjectList = () => {
+  const lead = projects.filter((p) => p.tier === "lead");
+  const secondary = projects.filter((p) => p.tier === "secondary");
+
   return (
     <section className="font-mono text-ink">
       <div className="marker font-display">quest log</div>
 
-      <ul
-        className="flex list-none flex-col"
-        style={{ marginTop: "var(--space-md)", gap: "var(--space-md)" }}
+      <div
+        className="flex flex-col"
+        style={{ marginTop: "var(--space-md)", gap: "var(--space-lg)" }}
       >
-        {projects.map((project, i) => (
-          <ProjectCard key={project.name} project={project} index={i} />
-        ))}
-      </ul>
+        <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+          <span className="tag">featured</span>
+          <ul
+            className="flex list-none flex-col"
+            style={{ gap: "var(--space-md)" }}
+          >
+            {lead.map((project, i) => (
+              <ProjectCard key={project.name} project={project} index={i} />
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+          <span className="tag">also built</span>
+          <ul
+            className="flex list-none flex-col"
+            style={{ gap: "var(--space-md)" }}
+          >
+            {secondary.map((project, i) => (
+              <ProjectCard
+                key={project.name}
+                project={project}
+                index={lead.length + i}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 };

@@ -314,6 +314,8 @@ body {
   padding: var(--space-xs);
   width: 2rem;
   height: 2rem;
+  letter-spacing: 0;
+  line-height: 1;
 }
 
 /* .progress — block-element bar █▓▒░ (never a smooth rounded bar)

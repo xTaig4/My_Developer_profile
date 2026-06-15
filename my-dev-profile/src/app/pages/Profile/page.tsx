@@ -32,52 +32,52 @@ const StatBar = ({ stat, fillPercent }: { stat: string; fillPercent: number }) =
   </div>
 );
 
+const stats = [
+  { stat: "AI Engineering", fillPercent: 88 },
+  { stat: "Software Architecture", fillPercent: 90 },
+  { stat: "Frontend", fillPercent: 75 },
+  { stat: "Backend", fillPercent: 83 },
+  { stat: "Security (AppSec)", fillPercent: 50 },
+];
+
+const traits = [
+  { trait: "Certified nerd" },
+  { trait: "Chill" },
+  { trait: "Patient" },
+  { trait: "Resilient" },
+  { trait: "Team player" },
+];
+
+const hobbies = [
+  { hobby: "AI" },
+  { hobby: "Doodle" },
+  { hobby: "Gaming" },
+  { hobby: "Pour-over Coffee" },
+  { hobby: "Reading" },
+  { hobby: "Volleyball" },
+];
+
+const education = [
+  {
+    degree: "Software Developer (PBA)",
+    school: "Erhvervsakademi Dania, Grenaa",
+    dates: "Jan 2023 – Jun 2024",
+  },
+  {
+    degree: "Datamatiker (AP, Computer Science)",
+    school: "Erhvervsakademi Dania, Grenaa",
+    dates: "Sep 2020 – Jan 2023",
+  },
+];
+
+const languages = [
+  { lang: "Danish", level: "native" },
+  { lang: "English", level: "fluent" },
+  { lang: "Vietnamese", level: "intermediate" },
+  { lang: "Japanese", level: "intermediate" },
+];
+
 const ProfilePage = () => {
-  const stats = [
-    { stat: "AI Engineering", fillPercent: 88 },
-    { stat: "Software Architecture", fillPercent: 90 },
-    { stat: "Frontend", fillPercent: 75 },
-    { stat: "Backend", fillPercent: 83 },
-    { stat: "Cybersecurity", fillPercent: 25 },
-  ];
-
-  const traits = [
-    { trait: "Chill" },
-    { trait: "Resilient" },
-    { trait: "Team player" },
-    { trait: "Weirdo" },
-    { trait: "Certified nerd" },
-    { trait: "Patient" },
-  ];
-
-  const hobbies = [
-    { hobby: "Gaming" },
-    { hobby: "Volleyball" },
-    { hobby: "Reading" },
-    { hobby: "Pour-over Coffee" },
-    { hobby: "Doodle" },
-  ];
-
-  const education = [
-    {
-      degree: "Software Developer (PBA)",
-      school: "Erhvervsakademi Dania, Grenaa",
-      dates: "Jan 2023 – Jun 2024",
-    },
-    {
-      degree: "Datamatiker (AP, Computer Science)",
-      school: "Erhvervsakademi Dania, Grenaa",
-      dates: "Sep 2020 – Jan 2023",
-    },
-  ];
-
-  const languages = [
-    { lang: "Danish", level: "native" },
-    { lang: "English", level: "fluent" },
-    { lang: "Vietnamese", level: "intermediate" },
-    { lang: "Japanese", level: "intermediate" },
-  ];
-
   return (
     <main className="min-h-[calc(100lvh-3rem)] bg-app p-[var(--space-md)] font-mono text-ink sm:p-[var(--space-lg)] lg:p-[var(--space-xl)]">
       <div
@@ -87,10 +87,11 @@ const ProfilePage = () => {
         <ProfileHeader
           name="Tai Nguyen"
           classLine="full-stack developer, AI-focused"
-          location="Aalborg, Denmark"
+          location="Aalborg, Denmark · open to Copenhagen"
           status="open to offers"
           oneLiner="Full-stack developer building AI products that create real value for non-technical users."
-          record="Trained full-stack software developer with hands-on experience shipping AI solutions for non-technical users. Co-developed Kvik, a Danish AI bookkeeping assistant, and builds LLM pipelines with a focus on reliability, GDPR, and usability, pairing technical depth with product sense."
+          drive="I see AI as more than a tool. It's a partner that helps me learn, build, and get closer to my vision."
+          record="Full-stack software developer with hands-on experience building AI solutions for non-technical users. I co-developed Kvik, a Danish AI bookkeeping assistant, where I now act as CTO and AI developer, and I build LLM pipelines with a focus on reliability, data protection, and usability, pairing technical depth with product sense. I also work alongside AI daily as a thinking and learning partner, using it to pick up new skills and explore ideas well beyond code."
         />
 
         {/* BODY: main column (substance) + side rail (stats + credentials) */}
