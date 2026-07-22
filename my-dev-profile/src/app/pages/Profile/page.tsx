@@ -74,7 +74,7 @@ const languages = [
   { lang: "Danish", level: "native" },
   { lang: "English", level: "fluent" },
   { lang: "Vietnamese", level: "intermediate" },
-  { lang: "Japanese", level: "intermediate" },
+  { lang: "Japanese", level: "learning" },
 ];
 
 const ProfilePage = () => {

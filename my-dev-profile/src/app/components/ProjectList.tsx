@@ -21,6 +21,16 @@ const projects: Project[] = [
     tier: "lead",
   },
   {
+    name: "Timeseddel",
+    description:
+      "An offline-first Danish work-hours and holiday tracker in React Native / Expo, with an accrual engine that encodes the Danish holiday law, verified against the law text with 59 unit tests green. A built-in AI assistant answers Danish workplace questions, with the Mistral key kept server-side behind a Supabase edge proxy so personal data stays in the EU, and crash reporting runs through Sentry with source-mapped stack traces from the installed APK.",
+    image:
+      "https://raw.githubusercontent.com/xTaig4/timeseddel/refs/heads/main/docs/screenshots/timer-light.png",
+    link: "https://github.com/xTaig4/timeseddel",
+    stack: ["React Native", "Expo", "Redux Toolkit", "SQLite", "Mistral"],
+    tier: "lead",
+  },
+  {
     name: "Riftbound Tracker",
     description:
       "A cross-platform desktop app built solo end-to-end (~8k lines): native Rust commands, versioned SQLite migrations, and a self-designed design system. Offline-first with atomic writes and fault isolation; 10 documented architecture decisions (ADRs).",
