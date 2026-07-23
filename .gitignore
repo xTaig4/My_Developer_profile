@@ -1,0 +1,5 @@
+# Local AI tooling / session artifacts (any depth)
+.claude/
+.impeccable/
+.playwright-mcp/
+.agents/
