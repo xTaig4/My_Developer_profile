@@ -40,11 +40,17 @@ const projects: Project[] = [
   {
     name: "Kanji Tales",
     description:
-      "A web app where users add the kanji they have learned, then an LLM generates short stories and sentences from them to reinforce reading in context.",
+      "A reading app that writes tiny Japanese stories from the kanji and vocabulary you have actually learned, pulled live from your WaniKani account. Every kanji in a draft is checked in code against that known set, and any leak is fed back to the model for a rewrite, so a story only carries the 検 seal once it passes. Generation runs through headless Claude Code instead of a paid API key, and the reading view adds per-word furigana, a cast list of the vocabulary used, and a translation kept hidden until you ask for it.",
     image:
-      "https://raw.githubusercontent.com/xTaig4/KanjiTales/refs/heads/main/kanji_tales/public/KanjiTales.JPG",
+      "https://raw.githubusercontent.com/xTaig4/KanjiTales/refs/heads/main/kanji_tales/public/kanjitales-demo.png",
     link: "https://github.com/xTaig4/KanjiTales",
-    stack: ["React", "Next.js", "LLM API"],
+    stack: [
+      "Next.js 15",
+      "React 19",
+      "Tailwind 4",
+      "WaniKani API",
+      "Claude Code",
+    ],
     tier: "lead",
   },
   {
@@ -96,12 +102,12 @@ const ProjectThumb = ({ src, alt }: { src: string; alt: string }) => {
 
   return (
     <div
-      className="relative flex-shrink-0 overflow-hidden border border-border bg-inset"
+      className="border-border bg-inset relative flex-shrink-0 overflow-hidden border"
       style={{ width: "100%", height: "7.5rem", borderRadius: "2px" }}
     >
       {errored ? (
         <div
-          className="flex h-full w-full items-center justify-center text-ink-muted"
+          className="text-ink-muted flex h-full w-full items-center justify-center"
           style={{ fontSize: "var(--type-2xs)", letterSpacing: "0.08em" }}
         >
           [ no preview ]
@@ -161,13 +167,13 @@ const CardInner = ({ project, index }: { project: Project; index: number }) => {
           style={{ gap: "var(--space-sm)" }}
         >
           <span
-            className="flex-shrink-0 text-ink-muted tabular-nums"
+            className="text-ink-muted flex-shrink-0 tabular-nums"
             style={{ fontSize: "var(--type-2xs)" }}
           >
             {String(index + 1).padStart(2, "0")}
           </span>
           <span
-            className={`truncate font-display text-ink ${project.link ? "transition-colors group-hover:text-accent" : ""}`}
+            className={`font-display text-ink truncate ${project.link ? "group-hover:text-accent transition-colors" : ""}`}
             style={{ fontSize: "var(--type-base)" }}
           >
             {project.name}
@@ -185,7 +191,10 @@ const CardInner = ({ project, index }: { project: Project; index: number }) => {
       >
         {project.image && (
           <div className="sm:w-50 sm:flex-shrink-0">
-            <ProjectThumb src={project.image} alt={`${project.name} screenshot`} />
+            <ProjectThumb
+              src={project.image}
+              alt={`${project.name} screenshot`}
+            />
           </div>
         )}
         <div
@@ -210,7 +219,13 @@ const CardInner = ({ project, index }: { project: Project; index: number }) => {
   );
 };
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) => {
   if (project.link) {
     const repo = isRepo(project.link);
     return (
@@ -241,7 +256,7 @@ const ProjectList = () => {
   const secondary = projects.filter((p) => p.tier === "secondary");
 
   return (
-    <section className="font-mono text-ink">
+    <section className="text-ink font-mono">
       <div className="marker font-display">quest log</div>
 
       <div
