@@ -40,7 +40,7 @@ const projects: Project[] = [
   {
     name: "Kanji Tales",
     description:
-      "A reading app that writes tiny Japanese stories from the kanji and vocabulary you have actually learned, pulled live from your WaniKani account. Every kanji in a draft is checked in code against that known set, and any leak is fed back to the model for a rewrite, so a story only carries the 検 seal once it passes. Generation runs through headless Claude Code instead of a paid API key, and the reading view adds per-word furigana, a cast list of the vocabulary used, and a translation kept hidden until you ask for it.",
+      "A reading app that writes tiny Japanese stories from the kanji and vocabulary you have actually learned, pulled live from your WaniKani account. Every kanji in a draft is checked in code against that known set, and any leak is fed back to the model for a rewrite, so a story only carries the 検 seal once it passes. Generation runs through headless Claude Code instead of a paid API key, and the reading view adds per-word furigana, a cast list of the vocabulary used, and a translation kept hidden until you ask for it. Every story is saved to a 過去公演 archive that can be reopened for a re-read.",
     image:
       "https://raw.githubusercontent.com/xTaig4/KanjiTales/refs/heads/main/kanji_tales/public/kanjitales-demo.png",
     link: "https://github.com/xTaig4/KanjiTales",
