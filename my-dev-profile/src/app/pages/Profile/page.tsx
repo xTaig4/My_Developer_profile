@@ -49,6 +49,7 @@ const stats = [
 const traits = [
   { trait: "Certified nerd" },
   { trait: "Chill" },
+  { trait: "I can make it happen" },
   { trait: "Patient" },
   { trait: "Resilient" },
   { trait: "Team player" },
