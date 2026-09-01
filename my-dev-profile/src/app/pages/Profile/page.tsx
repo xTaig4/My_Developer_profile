@@ -8,7 +8,13 @@ import SkillsBox from "@/app/components/BoxComponents/SkillsBox";
 import HobbiesBox from "@/app/components/BoxComponents/HobbiesBox";
 import TraitsBox from "@/app/components/BoxComponents/TraitsBox";
 
-const StatBar = ({ stat, fillPercent }: { stat: string; fillPercent: number }) => (
+const StatBar = ({
+  stat,
+  fillPercent,
+}: {
+  stat: string;
+  fillPercent: number;
+}) => (
   <div className="flex flex-col" style={{ gap: "var(--space-xs)" }}>
     <div
       className="flex items-baseline justify-between"
@@ -79,25 +85,28 @@ const languages = [
 
 const ProfilePage = () => {
   return (
-    <main className="min-h-[calc(100lvh-3rem)] bg-app p-[var(--space-md)] font-mono text-ink sm:p-[var(--space-lg)] lg:p-[var(--space-xl)]">
+    <main className="bg-app text-ink min-h-[calc(100lvh-3rem)] p-[var(--space-md)] font-mono sm:p-[var(--space-lg)] lg:p-[var(--space-xl)]">
       <div
         className="mx-auto flex w-full flex-col"
         style={{ gap: "var(--space-2xl)", maxWidth: "72rem" }}
       >
         <ProfileHeader
           name="Tai Nguyen"
-          classLine="full-stack developer, AI-focused"
+          classLine="fullstack developer & AI builder"
           location="Aalborg, Denmark · open to Copenhagen"
-          status="open to offers"
-          oneLiner="Full-stack developer building AI products that create real value for non-technical users."
+          status="between roles · open to offers"
+          oneLiner="Fullstack developer building AI products that create real value for non-technical users."
           drive="I see AI as more than a tool. It's a partner that helps me learn, build, and get closer to my vision."
-          record="Full-stack software developer with hands-on experience building AI solutions for non-technical users. I co-developed Kvik, a Danish AI bookkeeping assistant, where I now act as CTO and AI developer, and I build LLM pipelines with a focus on reliability, data protection, and usability, pairing technical depth with product sense. I also work alongside AI daily as a thinking and learning partner, using it to pick up new skills and explore ideas well beyond code."
+          record="Fullstack software developer with hands-on experience building AI solutions for non-technical users. I co-developed Kvik, a Danish AI bookkeeping assistant, where I took technical responsibility as lead developer and AI developer one month into an internship, and I build LLM pipelines with a focus on reliability, data protection, and usability, pairing technical depth with product sense. I also work alongside AI daily as a thinking and learning partner, using it to pick up new skills and explore ideas well beyond code."
         />
 
         {/* BODY: main column (substance) + side rail (stats + credentials) */}
         <div className="grid grid-cols-1 gap-[var(--space-2xl)] lg:grid-cols-[minmax(0,1fr)_19rem]">
           {/* MAIN — abilities, experience, projects */}
-          <div className="flex min-w-0 flex-col" style={{ gap: "var(--space-2xl)" }}>
+          <div
+            className="flex min-w-0 flex-col"
+            style={{ gap: "var(--space-2xl)" }}
+          >
             <SkillsBox />
             <ExperienceList />
             <ProjectList />
@@ -105,7 +114,10 @@ const ProfilePage = () => {
 
           {/* RAIL — stats, education, traits, hobbies, languages */}
           <aside className="flex flex-col" style={{ gap: "var(--space-xl)" }}>
-            <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+            <section
+              className="flex flex-col"
+              style={{ gap: "var(--space-md)" }}
+            >
               <div className="marker font-display">stats</div>
               <div className="flex flex-col" style={{ gap: "var(--space-md)" }}>
                 {stats.map((s) => (
@@ -114,15 +126,31 @@ const ProfilePage = () => {
               </div>
             </section>
 
-            <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+            <section
+              className="flex flex-col"
+              style={{ gap: "var(--space-md)" }}
+            >
               <div className="marker font-display">education</div>
-              <ul className="flex list-none flex-col" style={{ gap: "var(--space-md)" }}>
+              <ul
+                className="flex list-none flex-col"
+                style={{ gap: "var(--space-md)" }}
+              >
                 {education.map((e) => (
-                  <li key={e.degree} className="flex flex-col" style={{ gap: "var(--space-3xs)" }}>
-                    <span className="text-ink" style={{ fontSize: "var(--type-sm)" }}>
+                  <li
+                    key={e.degree}
+                    className="flex flex-col"
+                    style={{ gap: "var(--space-3xs)" }}
+                  >
+                    <span
+                      className="text-ink"
+                      style={{ fontSize: "var(--type-sm)" }}
+                    >
                       {e.degree}
                     </span>
-                    <span className="text-ink-muted" style={{ fontSize: "var(--type-2xs)" }}>
+                    <span
+                      className="text-ink-muted"
+                      style={{ fontSize: "var(--type-2xs)" }}
+                    >
                       {e.school}
                     </span>
                     <span
@@ -139,13 +167,22 @@ const ProfilePage = () => {
             <TraitsBox traits={traits} />
             <HobbiesBox hobbies={hobbies} />
 
-            <section className="flex flex-col" style={{ gap: "var(--space-md)" }}>
+            <section
+              className="flex flex-col"
+              style={{ gap: "var(--space-md)" }}
+            >
               <div className="marker font-display">languages</div>
-              <ul className="flex list-none flex-wrap" style={{ gap: "var(--space-xs)" }}>
+              <ul
+                className="flex list-none flex-wrap"
+                style={{ gap: "var(--space-xs)" }}
+              >
                 {languages.map((l) => (
                   <li key={l.lang} className="chip">
                     {l.lang}
-                    <span className="text-ink-muted" style={{ marginLeft: "var(--space-xs)" }}>
+                    <span
+                      className="text-ink-muted"
+                      style={{ marginLeft: "var(--space-xs)" }}
+                    >
                       {l.level}
                     </span>
                   </li>

@@ -10,13 +10,14 @@ interface Role {
 const ROLES: Role[] = [
   {
     company: "Kvik.pro",
-    role: "Intern, now acting CTO & AI developer",
-    dates: "Mar 2026 – present",
+    role: "Intern → lead developer & AI developer",
+    dates: "Mar – Aug 2026",
     bullets: [
       "Co-developed Kvik, a Danish AI bookkeeping assistant that lets tradespeople, including people with dyslexia, manage their accounting just by speaking or texting, from the ElevenLabs voice agent through to the Dinero accounting API integration.",
-      "Took shared responsibility for the full infrastructure and now lead the technical direction as the team's acting CTO.",
+      "Took shared responsibility for the full infrastructure and owned the technical direction as lead developer, one month in on a three-person team.",
       "Built a human-in-the-loop SMS confirmation so the AI never takes an irreversible action without explicit user consent, and worked on multi-tenant security (token encryption, OAuth / PKCE).",
       "Built durable customer workflows in Inngest with Stripe payment automation, using the Claude API, prompt engineering, and Claude Code daily.",
+      "Took part in the August 2026 decision to wind the product down, when Danish speech AI proved not yet reliable enough for the core interaction and our platform partners could ship the same capability themselves.",
     ],
   },
   {
@@ -37,7 +38,7 @@ const ROLES: Role[] = [
 
 const ExperienceList = () => {
   return (
-    <section className="font-mono text-ink">
+    <section className="text-ink font-mono">
       <div className="marker font-display">campaign log</div>
 
       <ol
@@ -45,7 +46,11 @@ const ExperienceList = () => {
         style={{ marginTop: "var(--space-md)", gap: "var(--space-xl)" }}
       >
         {ROLES.map((r) => (
-          <li key={r.company} className="flex flex-col" style={{ gap: "var(--space-sm)" }}>
+          <li
+            key={r.company}
+            className="flex flex-col"
+            style={{ gap: "var(--space-sm)" }}
+          >
             <div
               className="flex flex-wrap items-baseline justify-between"
               style={{ gap: "var(--space-xs) var(--space-md)" }}
@@ -68,24 +73,36 @@ const ExperienceList = () => {
                 </span>
               </div>
               <span
-                className="flex-shrink-0 text-ink-muted tabular-nums"
+                className="text-ink-muted flex-shrink-0 tabular-nums"
                 style={{ fontSize: "var(--type-2xs)", letterSpacing: "0.04em" }}
               >
                 {r.dates}
               </span>
             </div>
 
-            <ul className="flex list-none flex-col" style={{ gap: "var(--space-xs)" }}>
+            <ul
+              className="flex list-none flex-col"
+              style={{ gap: "var(--space-xs)" }}
+            >
               {r.bullets.map((b, i) => (
                 <li
                   key={i}
-                  className="flex text-ink-muted"
-                  style={{ gap: "var(--space-sm)", fontSize: "var(--type-sm)", lineHeight: 1.55 }}
+                  className="text-ink-muted flex"
+                  style={{
+                    gap: "var(--space-sm)",
+                    fontSize: "var(--type-sm)",
+                    lineHeight: 1.55,
+                  }}
                 >
-                  <span className="flex-shrink-0 text-ink-faint select-none" aria-hidden="true">
+                  <span
+                    className="text-ink-faint flex-shrink-0 select-none"
+                    aria-hidden="true"
+                  >
                     &gt;
                   </span>
-                  <span style={{ maxWidth: "66ch", textWrap: "pretty" }}>{b}</span>
+                  <span style={{ maxWidth: "66ch", textWrap: "pretty" }}>
+                    {b}
+                  </span>
                 </li>
               ))}
             </ul>
